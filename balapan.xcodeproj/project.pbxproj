@@ -16,6 +16,7 @@
 		61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB59E2BB2BECC00678411 /* SnapKit */; };
 		61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */; };
 		61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */; };
+		61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB5A62BB2D67200678411 /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61FFB59B2BB2BD6900678411 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 		61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		61FFB5A62BB2D67200678411 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				61FFB5A52BB2D64C00678411 /* SearchPage */,
 				61FFB5A22BB2D52D00678411 /* HomePage */,
 				61FFB5982BB2BD2600678411 /* HelloPage */,
 				619B041A2BAE0C8E00380F46 /* AppDelegate.swift */,
@@ -88,6 +91,14 @@
 				61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */,
 			);
 			path = HomePage;
+			sourceTree = "<group>";
+		};
+		61FFB5A52BB2D64C00678411 /* SearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				61FFB5A62BB2D67200678411 /* SearchViewController.swift */,
+			);
+			path = SearchPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
