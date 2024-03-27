@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */; };
+		611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBDA2BB42A0400B23F61 /* GameViewController.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		611FCBDA2BB42A0400B23F61 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		611FCBD92BB4299200B23F61 /* GamePage */ = {
+			isa = PBXGroup;
+			children = (
+				611FCBDA2BB42A0400B23F61 /* GameViewController.swift */,
+			);
+			path = GamePage;
+			sourceTree = "<group>";
+		};
 		619B040E2BAE0C8E00380F46 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				611FCBD92BB4299200B23F61 /* GamePage */,
 				61FFB5A52BB2D64C00678411 /* SearchPage */,
 				61FFB5A22BB2D52D00678411 /* HomePage */,
 				61FFB5982BB2BD2600678411 /* HelloPage */,
@@ -185,6 +196,7 @@
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */,
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
+				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
