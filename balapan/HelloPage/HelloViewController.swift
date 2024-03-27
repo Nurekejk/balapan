@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 
 class HelloViewController: UIViewController {
-
-     let helloImage: UIImageView = {
+    
+    let helloImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage (named: "hello")
         return image
     }()
-
+    
     let welcomLabel: UILabel = {
         let label = UILabel()
         label.text = "Қош келдіңіз!"
@@ -24,7 +24,7 @@ class HelloViewController: UIViewController {
         label.font = .systemFont(ofSize: 32, weight: .medium)
         return label
     }()
-
+    
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Balapan - бұл сіздің балаңыздың дамуына арналған платформа."
@@ -34,7 +34,7 @@ class HelloViewController: UIViewController {
         label.numberOfLines = 2
         return label
     }()
-
+    
     let startButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Бастау", for: .normal)
@@ -43,7 +43,7 @@ class HelloViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -52,7 +52,7 @@ class HelloViewController: UIViewController {
         startButton.layer.cornerRadius = 8
         // Do any additional setup after loading the view.
     }
-
+    
     private func setupViews() {
         view.addSubview(helloImage)
         view.addSubview(welcomLabel)
@@ -64,7 +64,7 @@ class HelloViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(150)
         }
-
+        
         welcomLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(helloImage.snp.top).offset(427)
@@ -85,13 +85,13 @@ class HelloViewController: UIViewController {
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
