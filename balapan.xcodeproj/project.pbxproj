@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */; };
 		611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBDA2BB42A0400B23F61 /* GameViewController.swift */; };
+		611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBDE2BB6B49D00B23F61 /* GameTableViewCell.swift */; };
+		611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBE12BBD3DBD00B23F61 /* ContinueCollectionViewCell.swift */; };
+		611FCBE42BBD5A7300B23F61 /* NewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBE32BBD5A7300B23F61 /* NewCollectionViewCell.swift */; };
+		611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBE72BBD65B000B23F61 /* MovieCellHeader.swift */; };
+		611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -24,6 +29,11 @@
 /* Begin PBXFileReference section */
 		611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		611FCBDA2BB42A0400B23F61 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		611FCBDE2BB6B49D00B23F61 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		611FCBE12BBD3DBD00B23F61 /* ContinueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueCollectionViewCell.swift; sourceTree = "<group>"; };
+		611FCBE32BBD5A7300B23F61 /* NewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionViewCell.swift; sourceTree = "<group>"; };
+		611FCBE72BBD65B000B23F61 /* MovieCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellHeader.swift; sourceTree = "<group>"; };
+		611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +63,16 @@
 			isa = PBXGroup;
 			children = (
 				611FCBDA2BB42A0400B23F61 /* GameViewController.swift */,
+				611FCBDE2BB6B49D00B23F61 /* GameTableViewCell.swift */,
 			);
 			path = GamePage;
+			sourceTree = "<group>";
+		};
+		611FCBE02BB71FAE00B23F61 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		619B040E2BAE0C8E00380F46 = {
@@ -76,6 +94,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				611FCBE02BB71FAE00B23F61 /* Navigation */,
 				611FCBD92BB4299200B23F61 /* GamePage */,
 				61FFB5A52BB2D64C00678411 /* SearchPage */,
 				61FFB5A22BB2D52D00678411 /* HomePage */,
@@ -102,6 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */,
+				611FCBE12BBD3DBD00B23F61 /* ContinueCollectionViewCell.swift */,
+				611FCBE32BBD5A7300B23F61 /* NewCollectionViewCell.swift */,
+				611FCBE72BBD65B000B23F61 /* MovieCellHeader.swift */,
+				611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -194,9 +217,14 @@
 			files = (
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
+				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
+				611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */,
 				619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */,
+				611FCBE42BBD5A7300B23F61 /* NewCollectionViewCell.swift in Sources */,
+				611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */,
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
+				611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
