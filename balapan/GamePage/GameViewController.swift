@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     private func setupViews(){
         view.addSubview(tableView)
 
+
     } 
     private func setupConstraints(){
         tableView.snp.makeConstraints { make in

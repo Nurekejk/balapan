@@ -8,6 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+
     private let textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
@@ -26,6 +27,7 @@ class SearchViewController: UIViewController {
         button.backgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
         return button
     }()
+
     private let paddingView: UIView = {
         let uiView = UIView()
         return uiView

@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Simple Example"
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
@@ -35,7 +34,7 @@ class HomeViewController: UIViewController {
 
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(132)
+            make.top.equalToSuperview()
             make.bottom.leading.trailing.equalToSuperview()
         }
 
