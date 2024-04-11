@@ -15,12 +15,14 @@
 		611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBE72BBD65B000B23F61 /* MovieCellHeader.swift */; };
 		611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */; };
 		611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBEE2BC3DA4200B23F61 /* TabBarController.swift */; };
+		611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
 		619B04242BAE0C9000380F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B04232BAE0C9000380F46 /* Assets.xcassets */; };
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
+		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB59B2BB2BD6900678411 /* HelloViewController.swift */; };
 		61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB59E2BB2BECC00678411 /* SnapKit */; };
 		61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */; };
@@ -37,6 +39,7 @@
 		611FCBE72BBD65B000B23F61 /* MovieCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellHeader.swift; sourceTree = "<group>"; };
 		611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
 		611FCBEE2BC3DA4200B23F61 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,8 @@
 		619B04232BAE0C9000380F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		619B04262BAE0C9000380F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FFB59B2BB2BD6900678411 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 		61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61FFB5A62BB2D67200678411 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +84,16 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		611FCBF02BC6B01F00B23F61 /* SignInPage */ = {
+			isa = PBXGroup;
+			children = (
+				611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */,
+				61FF11462BC7CE7E005006F2 /* AuthTextField.swift */,
+				61FF11482BC7EB76005006F2 /* SignUpViewController.swift */,
+			);
+			path = SignInPage;
+			sourceTree = "<group>";
+		};
 		619B040E2BAE0C8E00380F46 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +113,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				611FCBF02BC6B01F00B23F61 /* SignInPage */,
 				611FCBE02BB71FAE00B23F61 /* Navigation */,
 				611FCBD92BB4299200B23F61 /* GamePage */,
 				61FFB5A52BB2D64C00678411 /* SearchPage */,
@@ -222,11 +238,14 @@
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
+				611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */,
 				611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */,
 				619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */,
 				611FCBE42BBD5A7300B23F61 /* NewCollectionViewCell.swift in Sources */,
 				611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */,
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
+				61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */,
+				61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
 				611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,

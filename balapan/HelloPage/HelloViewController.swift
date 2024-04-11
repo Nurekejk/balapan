@@ -87,8 +87,7 @@ class HelloViewController: UIViewController {
 
     }
     @objc private func buttonTapped(_ sender: UIButton) {
-        let controller = TabBarViewController()
-        controller.navigationItem.hidesBackButton = true
+        let controller = SignInViewController()
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
