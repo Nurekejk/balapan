@@ -9,15 +9,14 @@ import UIKit
 
 class GameTableViewCell: UITableViewCell {
 
-    private let mainContainer: UIView = {
+    lazy var mainContainer: UIView = {
         let uiView = UIView()
-        uiView.backgroundColor = UIColor(red: 241/255, green: 174/255, blue: 22/255, alpha: 1)
         uiView.layer.cornerRadius = 20
         return uiView
     }()
 
     
-    private let gameCategory: UILabel = {
+    lazy var gameCategory: UILabel = {
         let label = UILabel()
         label.text = "Әріптер"
         label.textColor = .white
@@ -44,7 +43,7 @@ class GameTableViewCell: UITableViewCell {
         playIcon.image = UIImage (named: "playIcon")
         return playIcon
     }()
-    private let categoryImage: UIImageView = {
+    lazy var categoryImage: UIImageView = {
         let categoryImage = UIImageView()
         categoryImage.image = UIImage (named: "gameImage")
         return categoryImage

@@ -35,8 +35,8 @@ class GameViewController: UIViewController {
     private func setupConstraints(){
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(112)
-            make.leading.equalToSuperview().offset(12)
-            make.trailing.equalToSuperview().offset(-12)
+            make.leading.equalToSuperview().offset(24)
+            make.trailing.equalToSuperview().offset(-24)
             make.height.equalToSuperview()
         }
     }
@@ -46,12 +46,15 @@ class GameViewController: UIViewController {
 
 extension GameViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return GameCategory.categoryArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
                                                  for: indexPath) as? GameTableViewCell
+        cell?.categoryImage.image = UIImage(named: GameCategory.categoryArray[indexPath.item].image)
+        cell?.mainContainer.backgroundColor = GameCategory.categoryArray[indexPath.item].color
+        cell?.gameCategory.text = GameCategory.categoryArray[indexPath.item].categoryName
         return cell ?? UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
