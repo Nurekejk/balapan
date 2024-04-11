@@ -19,23 +19,23 @@ final class TabBarViewController: UITabBarController {
     // MARK: - Setup Views
     private func setupTabs() {
         let home = createNavigation(mainTitle: "Главный Экран",
-                                    selectedImage: UIImage (named: "homeSelected")!,
-                                    image: UIImage (named: "home")!,
+                                    selectedImage: AppImage.home_selected.uiImage!,
+                                    image: AppImage.home.uiImage!,
                                     viewController: HomeViewController()
         )
         let search = createNavigation(mainTitle: "Іздеу",
-                                      selectedImage: UIImage (named: "searchSelected")!,
-                                      image: UIImage (named: "search")!,
+                                      selectedImage: AppImage.search_selected.uiImage!,
+                                      image:  AppImage.search.uiImage!,
                                       viewController: SearchViewController()
         )
         let game = createNavigation(mainTitle: "Ойындар",
-                                    selectedImage: UIImage (named: "gameSelected")!,
-                                    image: UIImage (named: "game")!,
+                                    selectedImage:  AppImage.game_selected.uiImage!,
+                                    image: AppImage.game.uiImage!,
                                     viewController: GameViewController()
         )
         let profile = createNavigation(mainTitle: "Профиль",
-                                       selectedImage: UIImage (named: "profileSelected")!,
-                                       image: UIImage (named: "profile")!,
+                                       selectedImage:   AppImage.profile_selected.uiImage!,
+                                       image: AppImage.profile.uiImage!,
                                        viewController: HomeViewController()
         )
 

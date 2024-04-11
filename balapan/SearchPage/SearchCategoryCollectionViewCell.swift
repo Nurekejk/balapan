@@ -15,9 +15,9 @@ class SearchCategoryCollectionViewCell: UICollectionViewCell {
         setupViews()
         setupConstraints()
     }
-    private let uiView: UIView = {
+    lazy var uiView: UIView = {
         let uiView = UIView()
-        uiView.backgroundColor = .orange
+        uiView.backgroundColor = UIColor.red
         uiView.layer.cornerRadius = 15
         return uiView
     }()
@@ -29,14 +29,14 @@ class SearchCategoryCollectionViewCell: UICollectionViewCell {
         label.font = .italicSystemFont(ofSize: 14)
         return label
     }()
-    private let categoryLabel: UILabel = {
+    lazy var  categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Мультфильм"
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
-    private let imageView: UIImageView = {
+    lazy var  image: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage (named: "category")
         return imageView
@@ -51,7 +51,7 @@ class SearchCategoryCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(uiView)
         contentView.addSubview(balapanLabel)
         contentView.addSubview(categoryLabel)
-        contentView.addSubview(imageView)
+        contentView.addSubview(image)
 
     }
 
@@ -70,7 +70,7 @@ class SearchCategoryCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(uiView.snp.bottom).offset(7)
             make.centerX.equalTo(uiView.snp.centerX)
         }
-        imageView.snp.makeConstraints { make in
+        image.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(75)
             make.bottom.equalTo(uiView.snp.bottom)
 

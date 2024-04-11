@@ -13,7 +13,7 @@ class HelloViewController: UIViewController {
     let helloImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = UIImage (named: "hello")
+        image.image = AppImage.hello.uiImage
         return image
     }()
 

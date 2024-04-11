@@ -22,7 +22,7 @@ class SearchViewController: UIViewController {
 
     private let searchButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage (named: "searchIcon"), for: .normal)
+        button.setImage(AppImage.search_icon.uiImage, for: .normal)
         button.tintColor =  UIColor(red: 55/255, green: 65/255, blue: 81/255, alpha: 1)
         button.backgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
         return button
@@ -89,11 +89,14 @@ class SearchViewController: UIViewController {
 }
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return MovieCategory.categoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoryCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoryCollectionViewCell.identifier, for: indexPath) as!     SearchCategoryCollectionViewCell
+        cell.image.image = UIImage(named: MovieCategory.categoryArray[indexPath.item].image)
+        cell.categoryLabel.text = MovieCategory.categoryArray[indexPath.item].categoryName
+        cell.uiView.backgroundColor = MovieCategory.categoryArray[indexPath.item].color
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

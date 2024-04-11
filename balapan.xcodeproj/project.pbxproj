@@ -23,6 +23,9 @@
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
+		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
+		61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11502BC80839005006F2 /* MovieCategory.swift */; };
+		61FF11532BC813A4005006F2 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11522BC813A4005006F2 /* AppColor.swift */; };
 		61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB59B2BB2BD6900678411 /* HelloViewController.swift */; };
 		61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB59E2BB2BECC00678411 /* SnapKit */; };
 		61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */; };
@@ -49,6 +52,9 @@
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
+		61FF11502BC80839005006F2 /* MovieCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategory.swift; sourceTree = "<group>"; };
+		61FF11522BC813A4005006F2 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		61FFB59B2BB2BD6900678411 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 		61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61FFB5A62BB2D67200678411 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				61FF114D2BC7FFBD005006F2 /* Resources */,
 				611FCBF02BC6B01F00B23F61 /* SignInPage */,
 				611FCBE02BB71FAE00B23F61 /* Navigation */,
 				611FCBD92BB4299200B23F61 /* GamePage */,
@@ -127,6 +134,15 @@
 				619B04282BAE0C9000380F46 /* Info.plist */,
 			);
 			path = balapan;
+			sourceTree = "<group>";
+		};
+		61FF114D2BC7FFBD005006F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				61FF114E2BC7FFF9005006F2 /* AppImage.swift */,
+				61FF11522BC813A4005006F2 /* AppColor.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		61FFB5982BB2BD2600678411 /* HelloPage */ = {
@@ -154,6 +170,7 @@
 			children = (
 				61FFB5A62BB2D67200678411 /* SearchViewController.swift */,
 				611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */,
+				61FF11502BC80839005006F2 /* MovieCategory.swift */,
 			);
 			path = SearchPage;
 			sourceTree = "<group>";
@@ -236,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
+				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
 				611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */,
@@ -251,7 +269,9 @@
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
+				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
+				61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
