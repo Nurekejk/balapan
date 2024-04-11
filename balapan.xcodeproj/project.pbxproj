@@ -20,6 +20,7 @@
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
 		619B04242BAE0C9000380F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B04232BAE0C9000380F46 /* Assets.xcassets */; };
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
+		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB59B2BB2BD6900678411 /* HelloViewController.swift */; };
 		61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB59E2BB2BECC00678411 /* SnapKit */; };
 		61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */; };
