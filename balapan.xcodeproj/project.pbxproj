@@ -28,13 +28,14 @@
 		61FF11532BC813A4005006F2 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11522BC813A4005006F2 /* AppColor.swift */; };
 		61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11542BC817F3005006F2 /* GameCategory.swift */; };
 		61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB59B2BB2BD6900678411 /* HelloViewController.swift */; };
-		61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB59E2BB2BECC00678411 /* SnapKit */; };
-		61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */; };
 		61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */; };
 		61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FFB5A62BB2D67200678411 /* SearchViewController.swift */; };
+		749F184846A917BD08CE7648 /* Pods_balapan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005821BA3468344646A47F77 /* Pods_balapan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005821BA3468344646A47F77 /* Pods_balapan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_balapan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C44F0B2047108CFFEFD6FD5 /* Pods-balapan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-balapan.release.xcconfig"; path = "Target Support Files/Pods-balapan/Pods-balapan.release.xcconfig"; sourceTree = "<group>"; };
 		611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		611FCBDA2BB42A0400B23F61 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		611FCBDE2BB6B49D00B23F61 /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 		61FFB59B2BB2BD6900678411 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
 		61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		61FFB5A62BB2D67200678411 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		77AFBA15372F9A5E12AF1F07 /* Pods-balapan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-balapan.debug.xcconfig"; path = "Target Support Files/Pods-balapan/Pods-balapan.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61FFB59F2BB2BECC00678411 /* SnapKit in Frameworks */,
-				61FFB5A12BB2BECC00678411 /* SnapKit-Dynamic in Frameworks */,
+				749F184846A917BD08CE7648 /* Pods_balapan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +109,8 @@
 			children = (
 				619B04192BAE0C8E00380F46 /* balapan */,
 				619B04182BAE0C8E00380F46 /* Products */,
+				AFE7BE855E2CA9A558CF2332 /* Pods */,
+				CA57B155CC5A6C7B3C489275 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +181,23 @@
 			path = SearchPage;
 			sourceTree = "<group>";
 		};
+		AFE7BE855E2CA9A558CF2332 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77AFBA15372F9A5E12AF1F07 /* Pods-balapan.debug.xcconfig */,
+				4C44F0B2047108CFFEFD6FD5 /* Pods-balapan.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA57B155CC5A6C7B3C489275 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				005821BA3468344646A47F77 /* Pods_balapan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,19 +205,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 619B042B2BAE0C9000380F46 /* Build configuration list for PBXNativeTarget "balapan" */;
 			buildPhases = (
+				51A944C053C3AD28FF1716BF /* [CP] Check Pods Manifest.lock */,
 				619B04132BAE0C8E00380F46 /* Sources */,
 				619B04142BAE0C8E00380F46 /* Frameworks */,
 				619B04152BAE0C8E00380F46 /* Resources */,
+				C9A89C6C45DBFB7C125785B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = balapan;
-			packageProductDependencies = (
-				61FFB59E2BB2BECC00678411 /* SnapKit */,
-				61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */,
-			);
 			productName = balapan;
 			productReference = 619B04172BAE0C8E00380F46 /* balapan.app */;
 			productType = "com.apple.product-type.application";
@@ -226,9 +244,6 @@
 				Base,
 			);
 			mainGroup = 619B040E2BAE0C8E00380F46;
-			packageReferences = (
-				61FFB59D2BB2BECC00678411 /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
 			productRefGroup = 619B04182BAE0C8E00380F46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,6 +264,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51A944C053C3AD28FF1716BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-balapan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9A89C6C45DBFB7C125785B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-balapan/Pods-balapan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-balapan/Pods-balapan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-balapan/Pods-balapan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		619B04132BAE0C8E00380F46 /* Sources */ = {
@@ -330,7 +387,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -393,7 +450,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -414,6 +471,7 @@
 		};
 		619B042C2BAE0C9000380F46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77AFBA15372F9A5E12AF1F07 /* Pods-balapan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -441,6 +499,7 @@
 		};
 		619B042D2BAE0C9000380F46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C44F0B2047108CFFEFD6FD5 /* Pods-balapan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,30 +547,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		61FFB59D2BB2BECC00678411 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		61FFB59E2BB2BECC00678411 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61FFB59D2BB2BECC00678411 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		61FFB5A02BB2BECC00678411 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 61FFB59D2BB2BECC00678411 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 619B040F2BAE0C8E00380F46 /* Project object */;
 }
