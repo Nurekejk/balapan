@@ -19,14 +19,14 @@ class DefaultCollectionViewCell: UICollectionViewCell {
          imageView.contentMode = .scaleToFill
          return imageView
      }()
-     private let movieName: UILabel = {
+    lazy var movieName: UILabel = {
          let label = UILabel()
          label.text = "Айдар"
          label.textColor = .black
          label.font = .systemFont(ofSize: 12, weight: .semibold)
          return label
      }()
-     private let episodeNumber: UILabel = {
+    lazy var episodeNumber: UILabel = {
          let label = UILabel()
          label.text = "Мультсериал"
          label.textColor = .gray

@@ -1,28 +1,27 @@
 //
-//  MovieCellHeader.swift
+//  DetailCollectionViewCell.swift
 //  balapan
 //
-//  Created by Nurbol on 03.04.2024.
+//  Created by Nurbol on 13.05.2024.
 //
 
 import UIKit
 
-class MovieCellHeader: UICollectionReusableView {
-    static let identifier = "MovieCellHeader"
+class DetailCollectionViewCell: UICollectionReusableView {
+    static let identifier = "DetailCollectionViewCell"
 
     // MARK: - Outlets
 
     lazy var title: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }()
 
     private lazy var allMoviesButton: UIButton = {
-        let button = UIButton(type: .custom)
+        let button = UIButton()
         button.setTitle("Барлығы", for: .normal)
         button.setTitleColor(AppColor.color10.uiColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         button.clipsToBounds = true
         return button
     }()

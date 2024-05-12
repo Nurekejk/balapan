@@ -34,6 +34,8 @@ enum AppColor: String, AppColorProtocol {
     case color6
     case color7
     case color8
+    case color9
+    case color10
 
 
 
