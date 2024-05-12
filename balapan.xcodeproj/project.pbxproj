@@ -21,6 +21,7 @@
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
 		619B04242BAE0C9000380F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B04232BAE0C9000380F46 /* Assets.xcassets */; };
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
+		61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -52,6 +53,7 @@
 		619B04232BAE0C9000380F46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		619B04262BAE0C9000380F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -94,14 +96,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		611FCBF02BC6B01F00B23F61 /* SignInPage */ = {
+		611FCBF02BC6B01F00B23F61 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
 				611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */,
 				61FF11462BC7CE7E005006F2 /* AuthTextField.swift */,
 				61FF11482BC7EB76005006F2 /* SignUpViewController.swift */,
 			);
-			path = SignInPage;
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		619B040E2BAE0C8E00380F46 = {
@@ -125,8 +127,9 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				61B9B54D2BF116350055A0B7 /* DetailPage */,
 				61FF114D2BC7FFBD005006F2 /* Resources */,
-				611FCBF02BC6B01F00B23F61 /* SignInPage */,
+				611FCBF02BC6B01F00B23F61 /* Authorization */,
 				611FCBE02BB71FAE00B23F61 /* Navigation */,
 				611FCBD92BB4299200B23F61 /* GamePage */,
 				61FFB5A52BB2D64C00678411 /* SearchPage */,
@@ -140,6 +143,14 @@
 				619B04282BAE0C9000380F46 /* Info.plist */,
 			);
 			path = balapan;
+			sourceTree = "<group>";
+		};
+		61B9B54D2BF116350055A0B7 /* DetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */,
+			);
+			path = DetailPage;
 			sourceTree = "<group>";
 		};
 		61FF114D2BC7FFBD005006F2 /* Resources */ = {
@@ -323,6 +334,7 @@
 				611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */,
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
 				61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */,
+				61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */,
 				61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
 				611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */,
