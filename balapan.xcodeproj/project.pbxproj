@@ -22,6 +22,7 @@
 		619B04242BAE0C9000380F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B04232BAE0C9000380F46 /* Assets.xcassets */; };
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
 		61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */; };
+		61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -54,6 +55,7 @@
 		619B04262BAE0C9000380F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */,
+				61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */,
 			);
 			path = DetailPage;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
 				61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
+				61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */,
 				61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

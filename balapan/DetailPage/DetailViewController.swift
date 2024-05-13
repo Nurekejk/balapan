@@ -49,10 +49,11 @@ class DetailViewController: UIViewController {
         return button
     }()
 
-    private let moreInfoButton: UIButton = {
+    private lazy var moreInfoButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setBackgroundImage(UIImage(named: "moreInfo"), for: .normal)
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(moreInfoButtonDidPressed(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -158,8 +159,11 @@ class DetailViewController: UIViewController {
 
         }
     }
-
-    
+    @objc private func moreInfoButtonDidPressed(_ sender: UIButton) {
+        let viewController = MoreInfoViewController()
+        viewController.modalPresentationStyle = .pageSheet
+          present(viewController, animated: true)
+    }
 
     /*
     // MARK: - Navigation
@@ -169,7 +173,10 @@ class DetailViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
+
+
     */
+   
 
 }
 
