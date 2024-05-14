@@ -23,6 +23,9 @@
 		619B04272BAE0C9000380F46 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 619B04262BAE0C9000380F46 /* Base */; };
 		61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */; };
 		61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */; };
+		61B9B5562BF2B5600055A0B7 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5552BF2B5600055A0B7 /* SeriesViewController.swift */; };
+		61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */; };
+		61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -56,6 +59,9 @@
 		619B04282BAE0C9000380F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61B9B54E2BF1164E0055A0B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
+		61B9B5552BF2B5600055A0B7 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
+		61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewCell.swift; sourceTree = "<group>"; };
+		61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SezonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				61B9B5542BF2B5390055A0B7 /* SeriesPage */,
 				61B9B54D2BF116350055A0B7 /* DetailPage */,
 				61FF114D2BC7FFBD005006F2 /* Resources */,
 				611FCBF02BC6B01F00B23F61 /* Authorization */,
@@ -154,6 +161,16 @@
 				61B9B5522BF2276F0055A0B7 /* MoreInfoViewController.swift */,
 			);
 			path = DetailPage;
+			sourceTree = "<group>";
+		};
+		61B9B5542BF2B5390055A0B7 /* SeriesPage */ = {
+			isa = PBXGroup;
+			children = (
+				61B9B5552BF2B5600055A0B7 /* SeriesViewController.swift */,
+				61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */,
+				61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */,
+			);
+			path = SeriesPage;
 			sourceTree = "<group>";
 		};
 		61FF114D2BC7FFBD005006F2 /* Resources */ = {
@@ -326,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */,
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
 				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
@@ -338,9 +356,11 @@
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
 				61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */,
 				61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */,
+				61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */,
 				61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
 				611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */,
+				61B9B5562BF2B5600055A0B7 /* SeriesViewController.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
