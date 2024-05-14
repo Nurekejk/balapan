@@ -26,6 +26,7 @@
 		61B9B5562BF2B5600055A0B7 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5552BF2B5600055A0B7 /* SeriesViewController.swift */; };
 		61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */; };
 		61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */; };
+		61B9B55D2BF3495B0055A0B7 /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -62,6 +63,7 @@
 		61B9B5552BF2B5600055A0B7 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
 		61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewCell.swift; sourceTree = "<group>"; };
 		61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SezonsCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				61B9B55B2BF349370055A0B7 /* AddChildPage */,
 				61B9B5542BF2B5390055A0B7 /* SeriesPage */,
 				61B9B54D2BF116350055A0B7 /* DetailPage */,
 				61FF114D2BC7FFBD005006F2 /* Resources */,
@@ -171,6 +174,14 @@
 				61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */,
 			);
 			path = SeriesPage;
+			sourceTree = "<group>";
+		};
+		61B9B55B2BF349370055A0B7 /* AddChildPage */ = {
+			isa = PBXGroup;
+			children = (
+				61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */,
+			);
+			path = AddChildPage;
 			sourceTree = "<group>";
 		};
 		61FF114D2BC7FFBD005006F2 /* Resources */ = {
@@ -344,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */,
+				61B9B55D2BF3495B0055A0B7 /* AddChildViewController.swift in Sources */,
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
 				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
