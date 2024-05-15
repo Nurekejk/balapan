@@ -27,6 +27,9 @@
 		61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */; };
 		61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */; };
 		61B9B55D2BF3495B0055A0B7 /* AddChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */; };
+		61B9B55F2BF355090055A0B7 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */; };
+		61B9B5612BF46F890055A0B7 /* AgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */; };
+		61B9B5632BF473630055A0B7 /* Ages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5622BF473630055A0B7 /* Ages.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -64,6 +67,9 @@
 		61B9B5572BF2B7B00055A0B7 /* SeriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewCell.swift; sourceTree = "<group>"; };
 		61B9B5592BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SezonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChildViewController.swift; sourceTree = "<group>"; };
+		61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B9B5622BF473630055A0B7 /* Ages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ages.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -180,6 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				61B9B55C2BF3495B0055A0B7 /* AddChildViewController.swift */,
+				61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */,
+				61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */,
+				61B9B5622BF473630055A0B7 /* Ages.swift */,
 			);
 			path = AddChildPage;
 			sourceTree = "<group>";
@@ -357,11 +366,13 @@
 				61B9B55A2BF2B7CB0055A0B7 /* SezonsCollectionViewCell.swift in Sources */,
 				61B9B55D2BF3495B0055A0B7 /* AddChildViewController.swift in Sources */,
 				61FFB5A72BB2D67200678411 /* SearchViewController.swift in Sources */,
+				61B9B55F2BF355090055A0B7 /* DefaultTextField.swift in Sources */,
 				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
 				611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */,
 				611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */,
+				61B9B5612BF46F890055A0B7 /* AgeCollectionViewCell.swift in Sources */,
 				619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */,
 				611FCBE42BBD5A7300B23F61 /* NewCollectionViewCell.swift in Sources */,
 				611FCBE82BBD65B000B23F61 /* MovieCellHeader.swift in Sources */,
@@ -377,6 +388,7 @@
 				611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
+				61B9B5632BF473630055A0B7 /* Ages.swift in Sources */,
 				61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
 				61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */,
