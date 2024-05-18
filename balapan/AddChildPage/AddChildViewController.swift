@@ -15,6 +15,7 @@ enum ControllerMode {
 
 class AddChildViewController: UIViewController {
     private var ages = ["1", "2", "3", "4", "5", "6", "7"]
+    private var selectedAge = ""
 
     var mode: ControllerMode = .boy
     // MARK: - UI
@@ -265,6 +266,23 @@ extension AddChildViewController: UICollectionViewDelegate, UICollectionViewData
             width: 40,
             height: 70
         )
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? AgeCollectionViewCell {
+            cell.childAgelabel.textColor = AppColor.color12.uiColor
+            cell.layer.borderColor = AppColor.color12.cgColor
+            cell.layer.cornerRadius = 5
+            cell.layer.borderWidth = 2
+            self.selectedAge = ages[indexPath.item]
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? AgeCollectionViewCell {
+            cell.childAgelabel.textColor = .lightGray
+            cell.layer.cornerRadius = 0
+            cell.layer.borderWidth = 0
+
+        }
     }
 
 

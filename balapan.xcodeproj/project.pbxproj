@@ -16,6 +16,8 @@
 		611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */; };
 		611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBEE2BC3DA4200B23F61 /* TabBarController.swift */; };
 		611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */; };
+		617026C92BF8BA7100031862 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026C82BF8BA7100031862 /* CategoryViewController.swift */; };
+		617026CB2BF8BC2D00031862 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026CA2BF8BC2D00031862 /* CategoryTableViewCell.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -30,6 +32,8 @@
 		61B9B55F2BF355090055A0B7 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */; };
 		61B9B5612BF46F890055A0B7 /* AgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */; };
 		61B9B5632BF473630055A0B7 /* Ages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5622BF473630055A0B7 /* Ages.swift */; };
+		61B9B5652BF4A9A80055A0B7 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5642BF4A9A80055A0B7 /* FilterViewController.swift */; };
+		61B9B5672BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9B5662BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift */; };
 		61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11462BC7CE7E005006F2 /* AuthTextField.swift */; };
 		61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF11482BC7EB76005006F2 /* SignUpViewController.swift */; };
 		61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FF114E2BC7FFF9005006F2 /* AppImage.swift */; };
@@ -54,6 +58,8 @@
 		611FCBEB2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCollectionViewCell.swift; sourceTree = "<group>"; };
 		611FCBEE2BC3DA4200B23F61 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		617026C82BF8BA7100031862 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		617026CA2BF8BC2D00031862 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,8 @@
 		61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B9B5622BF473630055A0B7 /* Ages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ages.swift; sourceTree = "<group>"; };
+		61B9B5642BF4A9A80055A0B7 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		61B9B5662BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		61FF11462BC7CE7E005006F2 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		61FF11482BC7EB76005006F2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		61FF114E2BC7FFF9005006F2 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
@@ -122,6 +130,15 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		617026C72BF8BA4700031862 /* CategoryPage */ = {
+			isa = PBXGroup;
+			children = (
+				617026C82BF8BA7100031862 /* CategoryViewController.swift */,
+				617026CA2BF8BC2D00031862 /* CategoryTableViewCell.swift */,
+			);
+			path = CategoryPage;
+			sourceTree = "<group>";
+		};
 		619B040E2BAE0C8E00380F46 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +160,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				617026C72BF8BA4700031862 /* CategoryPage */,
 				61B9B55B2BF349370055A0B7 /* AddChildPage */,
 				61B9B5542BF2B5390055A0B7 /* SeriesPage */,
 				61B9B54D2BF116350055A0B7 /* DetailPage */,
@@ -189,6 +207,8 @@
 				61B9B55E2BF355090055A0B7 /* DefaultTextField.swift */,
 				61B9B5602BF46F890055A0B7 /* AgeCollectionViewCell.swift */,
 				61B9B5622BF473630055A0B7 /* Ages.swift */,
+				61B9B5642BF4A9A80055A0B7 /* FilterViewController.swift */,
+				61B9B5662BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift */,
 			);
 			path = AddChildPage;
 			sourceTree = "<group>";
@@ -369,6 +389,7 @@
 				61B9B55F2BF355090055A0B7 /* DefaultTextField.swift in Sources */,
 				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
+				61B9B5672BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
 				611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */,
 				611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */,
@@ -386,13 +407,16 @@
 				61B9B5562BF2B5600055A0B7 /* SeriesViewController.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */,
+				61B9B5652BF4A9A80055A0B7 /* FilterViewController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
 				61B9B5632BF473630055A0B7 /* Ages.swift in Sources */,
 				61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
 				61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */,
+				617026C92BF8BA7100031862 /* CategoryViewController.swift in Sources */,
 				61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */,
+				617026CB2BF8BC2D00031862 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RWG4545U29;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = balapan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -565,6 +590,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RWG4545U29;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = balapan/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
