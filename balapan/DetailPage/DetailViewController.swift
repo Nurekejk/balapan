@@ -65,7 +65,8 @@ class DetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)
         collectionView.register(MovieCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MovieCellHeader.identifier)
-        collectionView.backgroundColor = AppColor.color9.uiColor
+        collectionView.backgroundColor = .white
+        collectionView.layer.cornerRadius = 8
         return collectionView
     }()
 

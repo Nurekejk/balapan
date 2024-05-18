@@ -68,5 +68,9 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         133
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = DetailViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 
 }

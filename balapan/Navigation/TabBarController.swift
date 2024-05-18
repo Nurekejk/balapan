@@ -36,7 +36,7 @@ final class TabBarViewController: UITabBarController {
         let profile = createNavigation(mainTitle: "Профиль",
                                        selectedImage:   AppImage.profile_selected.uiImage!,
                                        image: AppImage.profile.uiImage!,
-                                       viewController: HomeViewController()
+                                       viewController: ProfileViewController()
         )
 
         self.setViewControllers([home,search,game,profile], animated: true)

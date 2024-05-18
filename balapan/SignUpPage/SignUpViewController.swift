@@ -7,6 +7,8 @@
 
 
 import UIKit
+import SnapKit
+import ProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -137,6 +139,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
@@ -223,13 +226,28 @@ class SignUpViewController: UIViewController {
             make.height.equalTo(22)
         }
     }
+
     @objc private func loginButtonTapped(_ sender: UIButton) {
         let controller = SignInViewController()
         self.navigationController?.pushViewController(controller, animated: true)
     }
     @objc private func registerButtonTapped(_ sender: UIButton) {
-        let controller = SignInViewController()
+        let controller = AddChildViewController()
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    @objc private func showPassword(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = false
+    }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
 }

@@ -38,6 +38,7 @@ class FilterViewController: UIViewController {
         button.tintColor = .white
         button.layer.cornerRadius = 12
         button.backgroundColor = AppColor.color12.uiColor
+        button.addTarget(self, action: #selector(nextButtonDidPressed), for: .touchUpInside)
         return button
     }()
 
@@ -49,6 +50,7 @@ class FilterViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
         button.layer.borderColor = AppColor.color11.cgColor
+        button.addTarget(self, action: #selector(skipButtonDidPressed), for: .touchUpInside)
         return button
     }()
 
@@ -92,6 +94,16 @@ class FilterViewController: UIViewController {
             make.height.equalTo(56)
         }
 
+    }
+
+    @objc private func nextButtonDidPressed(_ sender: UIButton) {
+        let controller = TabBarViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+
+    }
+    @objc private func skipButtonDidPressed(_ sender: UIButton) {
+        let controller = TabBarViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

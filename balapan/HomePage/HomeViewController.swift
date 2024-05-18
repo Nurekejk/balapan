@@ -191,6 +191,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return header
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = DetailViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 
 }
 
