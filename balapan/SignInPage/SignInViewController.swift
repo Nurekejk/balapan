@@ -18,7 +18,7 @@ class SignInViewController: UIViewController {
     private let welcomLabel: UILabel = {
         let label = UILabel()
         label.text = "Cәлем"
-        label.textColor = .black
+        label.textColor = AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         return label
     }()
@@ -26,15 +26,15 @@ class SignInViewController: UIViewController {
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Аккаунтқа кіріңіз"
-        label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = AppColor.gray500.uiColor
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
 
     private let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
-        label.textColor = .black
+        label.textColor = AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
@@ -49,7 +49,8 @@ class SignInViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setImage(UIImage (systemName: "eye.slash"), for: .normal)
         button.setImage(UIImage (systemName: "eye"), for: .highlighted)
-        button.tintColor = UIColor(red: 107/255, green: 114/255, blue: 128/255, alpha: 0.7)
+        button.tintColor = AppColor.gray400.uiColor
+        button.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -58,7 +59,7 @@ class SignInViewController: UIViewController {
         textField.placeholder = "Сіздің email"
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
+        textField.layer.borderColor = AppColor.gray300.cgColor
         return textField
     }()
 
@@ -74,14 +75,14 @@ class SignInViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.isSecureTextEntry = true
-        textField.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
+        textField.layer.borderColor = AppColor.gray300.cgColor
         return textField
     }()
 
     private let passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "Құпия сөз"
-        label.textColor = .black
+        label.textColor = AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
@@ -89,7 +90,7 @@ class SignInViewController: UIViewController {
     private lazy var forgotPassword: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Құпия сөзді ұмыттыңыз ба?", for: .normal)
-        button.tintColor = UIColor(red: 179/255, green: 118/255, blue: 247/255, alpha: 1)
+        button.tintColor = AppColor.red300.uiColor
         return button
     }()
 
@@ -97,7 +98,7 @@ class SignInViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Кіру", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = UIColor(red: 77/255, green: 34/255, blue: 237/255, alpha: 1)
+        button.backgroundColor = AppColor.blue300.uiColor
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
         return button
@@ -106,7 +107,7 @@ class SignInViewController: UIViewController {
     private let haveAccountLabel: UILabel = {
         let label = UILabel()
         label.text = "Аккаунтыныз жоқ па?"
-        label.textColor = .lightGray
+        label.textColor = AppColor.gray500.uiColor
         label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
@@ -114,7 +115,7 @@ class SignInViewController: UIViewController {
     private lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Тіркелу", for: .normal)
-        button.tintColor = UIColor(red: 179/255, green: 118/255, blue: 247/255, alpha: 1)
+        button.tintColor = AppColor.red300.uiColor
         button.addTarget(self, action: #selector(registerButtonTapped(_:)), for: .touchUpInside)
         return button
     }()
@@ -248,14 +249,18 @@ class SignInViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    @objc private func togglePasswordVisibility(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
+        let imageName = passwordTextField.isSecureTextEntry ? "eye.slash" : "eye"
+        isSecureIcon.setImage(UIImage(systemName: imageName), for: .normal)
+    }
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 
     // MARK: - SnackBar

@@ -80,7 +80,7 @@ class SignUpViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setImage(UIImage (systemName: "eye.slash"), for: .normal)
         button.setImage(UIImage (systemName: "eye"), for: .highlighted)
-        button.tintColor =  AppColor.gray400.uiColor
+        button.tintColor = AppColor.gray400.uiColor
         button.addTarget(self, action: #selector(togglePasswordVisibility(_:)), for: .touchUpInside)
         return button
     }()
