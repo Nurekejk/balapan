@@ -11,7 +11,7 @@ class NewCollectionViewCell: UICollectionViewCell {
    
     static let identifier = "NewCollectionViewCell"
 
-    private let imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage (named: "movie-1")
         imageView.layer.cornerRadius = 8
@@ -19,14 +19,14 @@ class NewCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    private let movieName: UILabel = {
+    lazy var movieName: UILabel = {
         let label = UILabel()
         label.text = "Ойыншықтар"
         label.textColor = .black
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         return label
     }()
-    private let episodeNumber: UILabel = {
+    lazy var  shortDescription: UILabel = {
         let label = UILabel()
         label.text = "5 жасар Алуаның ойыншықтары өте көп. Ол барлығын бірдей жақсы көріп, ұқыпты, таза ұстайды"
         label.numberOfLines = 3
@@ -48,7 +48,7 @@ class NewCollectionViewCell: UICollectionViewCell {
     private func setupViews(){
         contentView.addSubview(imageView)
         contentView.addSubview(movieName)
-        contentView.addSubview(episodeNumber)
+        contentView.addSubview(shortDescription)
 
     }
 
@@ -61,7 +61,7 @@ class NewCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(imageView.snp.bottom).offset(16)
             make.leading.equalToSuperview()
         }
-        episodeNumber.snp.makeConstraints { make in
+        shortDescription.snp.makeConstraints { make in
             make.top.equalTo(movieName.snp.bottom).offset(8)
             make.leading.trailing.equalToSuperview()
 

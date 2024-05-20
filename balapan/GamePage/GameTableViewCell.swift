@@ -45,7 +45,7 @@ class GameTableViewCell: UITableViewCell {
     }()
     lazy var categoryImage: UIImageView = {
         let categoryImage = UIImageView()
-        categoryImage.image = UIImage (named: "gameImage")
+        categoryImage.image = UIImage (named: "game1")
         return categoryImage
     }()
 

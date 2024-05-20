@@ -11,7 +11,7 @@ class DefaultCollectionViewCell: UICollectionViewCell {
 
      static let identifier = "DefaultCollectionViewCell"
 
-     private let imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
          let imageView = UIImageView()
          imageView.image = UIImage (named: "aidar")
          imageView.layer.cornerRadius = 8
@@ -26,7 +26,7 @@ class DefaultCollectionViewCell: UICollectionViewCell {
          label.font = .systemFont(ofSize: 12, weight: .semibold)
          return label
      }()
-    lazy var episodeNumber: UILabel = {
+    lazy var categoryName: UILabel = {
          let label = UILabel()
          label.text = "Мультсериал"
          label.textColor = .gray
@@ -47,7 +47,7 @@ class DefaultCollectionViewCell: UICollectionViewCell {
      private func setupViews(){
          contentView.addSubview(imageView)
          contentView.addSubview(movieName)
-         contentView.addSubview(episodeNumber)
+         contentView.addSubview(categoryName)
 
      }
 
@@ -60,7 +60,7 @@ class DefaultCollectionViewCell: UICollectionViewCell {
              make.top.equalTo(imageView.snp.bottom).offset(16)
              make.leading.equalToSuperview()
          }
-         episodeNumber.snp.makeConstraints { make in
+         categoryName.snp.makeConstraints { make in
              make.top.equalTo(movieName.snp.bottom).offset(8)
              make.leading.trailing.equalToSuperview()
 

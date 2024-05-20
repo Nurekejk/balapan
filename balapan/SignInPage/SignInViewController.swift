@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import SnapKit
+import ProgressHUD
 
 class SignInViewController: UIViewController {
+
+    private let service = SignInService()
+
+    // MARK: - UI
 
     private let welcomLabel: UILabel = {
         let label = UILabel()
@@ -47,7 +53,6 @@ class SignInViewController: UIViewController {
         return button
     }()
 
-
     private let emailTextField: AuthTextField = {
         let textField = AuthTextField()
         textField.placeholder = "Сіздің email"
@@ -56,7 +61,6 @@ class SignInViewController: UIViewController {
         textField.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
         return textField
     }()
-
 
     private let passwordIcon: UIImageView = {
         let imageView = UIImageView()
@@ -81,6 +85,7 @@ class SignInViewController: UIViewController {
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
+
     private lazy var forgotPassword: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Құпия сөзді ұмыттыңыз ба?", for: .normal)
@@ -105,6 +110,7 @@ class SignInViewController: UIViewController {
         label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
+
     private lazy var registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Тіркелу", for: .normal)
@@ -113,13 +119,18 @@ class SignInViewController: UIViewController {
         return button
     }()
 
+    // MARK: - ViewDidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
+        self.hideKeyboardWhenTappedAround()
 
     }
+
+    // MARK: - SetupViews
 
     private func setupViews() {
         [welcomLabel, label, emailLabel, emailTextField, passwordLabel, passwordTextField, forgotPassword, loginButton, haveAccountLabel, registerButton].forEach {
@@ -137,6 +148,8 @@ class SignInViewController: UIViewController {
         passwordTextField.rightView = isSecureIcon
         passwordTextField.rightViewMode = .always
     }
+
+    // MARK: - SetupConstraints
 
     private func setupConstraints() {
         [welcomLabel, label, emailLabel, emailTextField, passwordLabel, passwordTextField, loginButton].forEach {
@@ -191,12 +204,76 @@ class SignInViewController: UIViewController {
         }
     }
 
+    // MARK: - Actions
+
     @objc private func loginButtonTapped(_ sender: UIButton) {
-        let controller = TabBarViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+
+        guard let email = emailTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Введите email.")
+            return
+        }
+
+        guard let password = passwordTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Пароль введен неправильно.")
+            return
+        }
+
+        var user = User(email: email)
+        user.setPassword(password: password)
+
+        service.fetchUser(with: user) { result in
+            switch result {
+            case .success(let data):
+                self.showSuccess()
+                let defaults = UserDefaults.standard
+                if let data = try? JSONEncoder().encode(data) {
+                    defaults.setValue(data, forKey: SignUpViewController.defaultsTokensKey)
+                    let controller = TabBarViewController()
+                    controller.navigationItem.hidesBackButton = true
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            case .failure:
+                DispatchQueue.main.async {
+                    self.showFailure()
+                    self.showSnackBar(message: "Ошибка! Повторите еще раз.")
+                }
+            }
+        }
     }
+
     @objc private func registerButtonTapped(_ sender: UIButton) {
         let controller = SignUpViewController()
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    // MARK: - SnackBar
+
+    private func showSnackBar(message: String) {
+        SnackBarController.showSnackBar(in: view, message: message, duration: .lengthShort)
+    }
+
+}
+
+// MARK: - Extensions
+
+extension SignInViewController: ProgressHudProtocol {
+    func showSuccess() {
+        ProgressHUD.show(icon: .succeed)
+    }
+
+    func showFailure() {
+        ProgressHUD.show(icon: .failed)
     }
 }

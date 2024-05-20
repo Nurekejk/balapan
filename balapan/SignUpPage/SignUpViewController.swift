@@ -11,6 +11,8 @@ import SnapKit
 import ProgressHUD
 
 class SignUpViewController: UIViewController {
+    private let service = CreateUserService()
+    public static var defaultsTokensKey = "accessTokens"
 
     private let welcomLabel: UILabel = {
         let label = UILabel()
@@ -50,8 +52,6 @@ class SignUpViewController: UIViewController {
         textField.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
         return textField
     }()
-
-
     private let passwordIcon: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "Password")
@@ -232,8 +232,63 @@ class SignUpViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     @objc private func registerButtonTapped(_ sender: UIButton) {
-        let controller = AddChildViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+        guard let email = emailTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Введите email.")
+            return
+        }
+        guard let password = passwordTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Пароль введен неправильно.")
+            return
+        }
+
+        if password.isEmpty {
+            self.showFailure()
+            self.showSnackBar(message: "Пожалуйста, введите пароль.")
+            return
+        } else if password.count < 6 {
+            self.showFailure()
+            self.showSnackBar(message: "Пароль слишком короткий!")
+            return
+        }
+
+        guard let passwordRepeated = repeatPasswordTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Повторный пароль введен неправильно.")
+            return
+        }
+
+        if passwordRepeated.isEmpty {
+            self.showFailure()
+            self.showSnackBar(message: "Пожалуйста, повторите пароль.")
+            return
+        } else if password != passwordRepeated {
+            self.showFailure()
+            self.showSnackBar(message: "Пароли не совпадают.")
+            return
+        }
+        var user = User(email: email)
+        user.setPassword(password: password)
+
+        service.fetchUser(with: user) { result in
+            switch result {
+            case .success(let data):
+                self.showSuccess()
+                let defaults = UserDefaults.standard
+                if let data = try? JSONEncoder().encode(data) {
+                    defaults.setValue(data, forKey: SignUpViewController.defaultsTokensKey)
+                    let controller = AddChildViewController()
+                    controller.navigationItem.hidesBackButton = true
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+            case .failure:
+                DispatchQueue.main.async {
+                    self.showFailure()
+                    self.showSnackBar(message: "Ошибка! Повторите еще раз.")
+                }
+            }
+        }
     }
 
     @objc private func showPassword(_ sender: UIButton) {
@@ -250,4 +305,19 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
 
+    // MARK: - SnackBar
+    private func showSnackBar(message: String) {
+        SnackBarController.showSnackBar(in: view, message: message, duration: .lengthShort)
+    }
+
+}
+
+extension SignUpViewController: ProgressHudProtocol {
+    func showSuccess() {
+        ProgressHUD.show(icon: .succeed)
+    }
+
+    func showFailure() {
+        ProgressHUD.show(icon: .failed)
+    }
 }

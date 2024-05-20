@@ -22,8 +22,13 @@
 		617026D02BF8CFDE00031862 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026CF2BF8CFDE00031862 /* ProfileTableViewCell.swift */; };
 		617026D22BF8D01800031862 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026D12BF8D01800031862 /* ProfileTableHeaderView.swift */; };
 		617026D52BF8D10C00031862 /* ProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026D42BF8D10C00031862 /* ProfileSection.swift */; };
-		617026D92BF9045200031862 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026D82BF9045200031862 /* Model.swift */; };
+		617026D92BF9045200031862 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026D82BF9045200031862 /* User.swift */; };
 		617026DB2BF9075000031862 /* ProgressHudProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026DA2BF9075000031862 /* ProgressHudProtocol.swift */; };
+		617026DD2BF90C9C00031862 /* SnackBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026DC2BF90C9C00031862 /* SnackBarController.swift */; };
+		617026E02BF90E2800031862 /* CreateUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026DF2BF90E2800031862 /* CreateUserService.swift */; };
+		617026E32BF92BFE00031862 /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026E22BF92BFE00031862 /* SignInService.swift */; };
+		617026E82BF9368600031862 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026E72BF9368600031862 /* Video.swift */; };
+		617026EA2BF936F900031862 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026E92BF936F900031862 /* HomeService.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -70,8 +75,13 @@
 		617026CF2BF8CFDE00031862 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		617026D12BF8D01800031862 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		617026D42BF8D10C00031862 /* ProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSection.swift; sourceTree = "<group>"; };
-		617026D82BF9045200031862 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		617026D82BF9045200031862 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		617026DA2BF9075000031862 /* ProgressHudProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHudProtocol.swift; sourceTree = "<group>"; };
+		617026DC2BF90C9C00031862 /* SnackBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarController.swift; sourceTree = "<group>"; };
+		617026DF2BF90E2800031862 /* CreateUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserService.swift; sourceTree = "<group>"; };
+		617026E22BF92BFE00031862 /* SignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInService.swift; sourceTree = "<group>"; };
+		617026E72BF9368600031862 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		617026E92BF936F900031862 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,8 +173,8 @@
 		617026D62BF9035C00031862 /* SignUpPage */ = {
 			isa = PBXGroup;
 			children = (
+				617026DE2BF90E0A00031862 /* Model */,
 				61FF11482BC7EB76005006F2 /* SignUpViewController.swift */,
-				617026D82BF9045200031862 /* Model.swift */,
 				617026DA2BF9075000031862 /* ProgressHudProtocol.swift */,
 			);
 			path = SignUpPage;
@@ -173,10 +183,37 @@
 		617026D72BF9037600031862 /* SignInPage */ = {
 			isa = PBXGroup;
 			children = (
+				617026E12BF92BDC00031862 /* Model */,
 				61FF11462BC7CE7E005006F2 /* AuthTextField.swift */,
 				611FCBF32BC6B0AA00B23F61 /* SignInViewController.swift */,
 			);
 			path = SignInPage;
+			sourceTree = "<group>";
+		};
+		617026DE2BF90E0A00031862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				617026D82BF9045200031862 /* User.swift */,
+				617026DF2BF90E2800031862 /* CreateUserService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		617026E12BF92BDC00031862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				617026E22BF92BFE00031862 /* SignInService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		617026E62BF9365E00031862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				617026E72BF9368600031862 /* Video.swift */,
+				617026E92BF936F900031862 /* HomeService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		619B040E2BAE0C8E00380F46 = {
@@ -219,6 +256,7 @@
 				619B04232BAE0C9000380F46 /* Assets.xcassets */,
 				619B04252BAE0C9000380F46 /* LaunchScreen.storyboard */,
 				619B04282BAE0C9000380F46 /* Info.plist */,
+				617026DC2BF90C9C00031862 /* SnackBarController.swift */,
 			);
 			path = balapan;
 			sourceTree = "<group>";
@@ -275,6 +313,7 @@
 		61FFB5A22BB2D52D00678411 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				617026E62BF9365E00031862 /* Model */,
 				61FFB5A32BB2D5DF00678411 /* HomeViewController.swift */,
 				611FCBE12BBD3DBD00B23F61 /* ContinueCollectionViewCell.swift */,
 				611FCBE32BBD5A7300B23F61 /* NewCollectionViewCell.swift */,
@@ -431,10 +470,11 @@
 				61B9B55F2BF355090055A0B7 /* DefaultTextField.swift in Sources */,
 				617026D22BF8D01800031862 /* ProfileTableHeaderView.swift in Sources */,
 				61FF11532BC813A4005006F2 /* AppColor.swift in Sources */,
-				617026D92BF9045200031862 /* Model.swift in Sources */,
+				617026D92BF9045200031862 /* User.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				61B9B5672BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
+				617026E02BF90E2800031862 /* CreateUserService.swift in Sources */,
 				611FCBF42BC6B0AA00B23F61 /* SignInViewController.swift in Sources */,
 				611FCBDF2BB6B49D00B23F61 /* GameTableViewCell.swift in Sources */,
 				61B9B5612BF46F890055A0B7 /* AgeCollectionViewCell.swift in Sources */,
@@ -448,18 +488,22 @@
 				61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */,
 				61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
+				617026EA2BF936F900031862 /* HomeService.swift in Sources */,
 				611FCBE22BBD3DBE00B23F61 /* ContinueCollectionViewCell.swift in Sources */,
 				617026D02BF8CFDE00031862 /* ProfileTableViewCell.swift in Sources */,
 				61B9B5562BF2B5600055A0B7 /* SeriesViewController.swift in Sources */,
 				619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */,
 				611FCBEF2BC3DA4200B23F61 /* TabBarController.swift in Sources */,
+				617026E82BF9368600031862 /* Video.swift in Sources */,
 				617026DB2BF9075000031862 /* ProgressHudProtocol.swift in Sources */,
 				61B9B5652BF4A9A80055A0B7 /* FilterViewController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
 				61B9B5632BF473630055A0B7 /* Ages.swift in Sources */,
+				617026E32BF92BFE00031862 /* SignInService.swift in Sources */,
 				61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */,
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
+				617026DD2BF90C9C00031862 /* SnackBarController.swift in Sources */,
 				61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */,
 				617026C92BF8BA7100031862 /* CategoryViewController.swift in Sources */,
 				617026CE2BF8CF3900031862 /* ProfileViewController.swift in Sources */,

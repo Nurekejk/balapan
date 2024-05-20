@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 struct ProfileSection {
-//    let image: UIImage
     let name: String
+}
+
+struct LogoutResponse {
+    let responce: String
 }

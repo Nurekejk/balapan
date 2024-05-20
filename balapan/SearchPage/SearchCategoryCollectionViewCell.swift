@@ -38,7 +38,7 @@ class SearchCategoryCollectionViewCell: UICollectionViewCell {
     }()
     lazy var  image: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage (named: "category")
+        imageView.image = UIImage (named: "category_1")
         return imageView
     }()
 

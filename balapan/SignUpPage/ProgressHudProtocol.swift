@@ -7,7 +7,7 @@
 
 import Foundation
 
-//protocol ProgressHudProtocol: AnyObject {
-//    func showSuccess()
-//    func showFailure()
-//}
+protocol ProgressHudProtocol: AnyObject {
+    func showSuccess()
+    func showFailure()
+}

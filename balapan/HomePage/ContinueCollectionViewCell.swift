@@ -11,7 +11,7 @@ class ContinueCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "ContinueCollectionViewCell"
 
-    private let imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage (named: "movie")
         imageView.layer.cornerRadius = 8
@@ -19,14 +19,14 @@ class ContinueCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleToFill
         return imageView
     }()
-    private let movieName: UILabel = {
+    lazy var movieName: UILabel = {
         let label = UILabel()
         label.text = "Глобус"
         label.textColor = .black
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         return label
     }()
-    private let episodeNumber: UILabel = {
+    lazy var categoryName: UILabel = {
         let label = UILabel()
         label.text = "1-бөлім"
         label.textColor = .lightGray
@@ -47,7 +47,7 @@ class ContinueCollectionViewCell: UICollectionViewCell {
     private func setupViews(){
         contentView.addSubview(imageView)
         contentView.addSubview(movieName)
-        contentView.addSubview(episodeNumber)
+        contentView.addSubview(categoryName)
 
     }
 
@@ -60,7 +60,7 @@ class ContinueCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(imageView.snp.bottom).offset(8)
             make.leading.equalToSuperview()
         }
-        episodeNumber.snp.makeConstraints { make in
+        categoryName.snp.makeConstraints { make in
             make.top.equalTo(movieName.snp.bottom).offset(4)
             make.leading.equalToSuperview()
         }

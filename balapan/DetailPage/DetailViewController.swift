@@ -9,11 +9,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    private var video: Video
     // MARK: - UI
 
     private let movieImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "simba")
+        imageView.contentMode = .scaleToFill
+        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -65,7 +67,7 @@ class DetailViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(DefaultCollectionViewCell.self, forCellWithReuseIdentifier: DefaultCollectionViewCell.identifier)
         collectionView.register(MovieCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MovieCellHeader.identifier)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = AppColor.color9.uiColor
         collectionView.layer.cornerRadius = 8
         return collectionView
     }()
@@ -75,8 +77,17 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
+        loadData()
     }
 
+    init(video: Video) {
+        self.video = video
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - SetupViews
     func setupViews(){
@@ -87,12 +98,13 @@ class DetailViewController: UIViewController {
         view.addSubview(playButton)
         view.addSubview(moreInfoButton)
         view.addSubview(collectionView)
-
+     
     }
     // MARK: - SetupConstraints
     func setupConstraints(){
         movieImage.snp.makeConstraints { make in
-            make.top.leading.trailing.width.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(550)
         }
         movieName.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(350)
@@ -121,6 +133,38 @@ class DetailViewController: UIViewController {
             make.top.equalTo(addButton.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
+    }
+
+
+    func loadData(){
+        if let url = URL(string: video.thumbnail) {
+            loadImage(from: url, into: movieImage)
+        }
+        movieName.text = video.title
+        shortDescription.text = video.shortDescription
+
+
+    }
+
+    func loadImage(from url: URL, into imageView: UIImageView) {
+        let session = URLSession.shared
+
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Ошибка загрузки изображения: \(error)")
+                return
+            }
+
+            guard let data = data, let image = UIImage(data: data) else {
+                print("Ошибка преобразования данных в изображение")
+                return
+            }
+
+            DispatchQueue.main.async {
+                imageView.image = image
+            }
+        }
+        task.resume()
     }
 
     private func createLayout() -> UICollectionViewCompositionalLayout {
@@ -166,19 +210,6 @@ class DetailViewController: UIViewController {
           present(viewController, animated: true)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-
-
-    */
-   
-
 }
 
 extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -190,7 +221,7 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as! DefaultCollectionViewCell
         cell.movieName.textColor = .white
-        cell.episodeNumber.textColor = .white
+        cell.categoryName.textColor = .white
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

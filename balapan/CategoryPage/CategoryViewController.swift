@@ -69,8 +69,8 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         133
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = DetailViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+//        let controller = DetailViewController(video: <#T##Video#>)
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

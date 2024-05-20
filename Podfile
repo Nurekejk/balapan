@@ -7,7 +7,7 @@ target 'balapan' do
 
   # Pods for balapan
    pod 'SnapKit', '~> 5.0.0'
-   pod 'ProgressHUD'
+   pod 'ProgressHUD', '13.6.2'
    pod 'SnackBar.swift'
    pod 'Alamofire'
    pod 'PanModal'

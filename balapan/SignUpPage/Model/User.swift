@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  User.swift
 //  balapan
 //
 //  Created by Nurbol on 18.05.2024.
@@ -19,4 +19,8 @@ struct User: Codable {
     mutating func setPassword(password: String) {
         self.password = password
     }
+}
+struct SignUpResponse: Codable {
+    let access_token: String?
+
 }

@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
         ProfileSection(name: "Ережелер мен шарттар")
     ]
 
-//    private let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
 
     // MARK: - UI
     private lazy var informationTableView: UITableView = {
@@ -80,8 +80,8 @@ final class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Да",
                                       style: .destructive,
                                       handler: { _ in
-//            self.defaults.removeObject(forKey: SignInViewController.defaultsTokensKey)
-//            self.navigationController?.popViewController(animated: true)
+
+            self.defaults.removeObject(forKey: SignUpViewController.defaultsTokensKey)
             if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate,
                let window = sceneDelegate.window{
                 window.rootViewController = UINavigationController(rootViewController: SignInViewController())
