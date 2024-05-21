@@ -9,9 +9,13 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
+    private let service = FilterService()
     private var janrs = ["Музыка", "Спорт", "Сурет", "Ғарыш", "Тарих", "Математика", "Көліктер" , "Ертегілер", "Батырлар"]
-    private var selectedJanrs: Set<String> = []
+    private var selectedJanrs: [String] = []
+    private var gender: String
+    private var age: Int
 
+    
 
     private let label: UILabel = {
         let label = UILabel()
@@ -53,6 +57,16 @@ class FilterViewController: UIViewController {
         button.addTarget(self, action: #selector(skipButtonDidPressed), for: .touchUpInside)
         return button
     }()
+
+    init(gender: String, age: Int) {
+        self.gender = gender
+        self.age = age
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,9 +111,17 @@ class FilterViewController: UIViewController {
     }
 
     @objc private func nextButtonDidPressed(_ sender: UIButton) {
-        let controller = TabBarViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
-
+        let request = UpdateUserFilterRequest(categories: selectedJanrs, types: selectedJanrs, gender: gender, age: 5)
+        service.updateUserFilter(requestBody: request) { result in
+            switch result {
+            case .success(let response):
+                print("Filter updated successfully. Response: \(response)")
+                let controller = TabBarViewController()
+                self.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                print("Failed to update filter. Error: \(error.error)")
+            }
+        }
     }
     @objc private func skipButtonDidPressed(_ sender: UIButton) {
         let controller = TabBarViewController()
@@ -133,12 +155,12 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? FilterCollectionViewCell {
             if cell.isAdded == false{
-                selectedJanrs.insert(janrs[indexPath.item])
+                selectedJanrs.append(janrs[indexPath.item])
                 cell.contentView.backgroundColor = AppColor.color12.uiColor
                 cell.janrlabel.textColor = .white
                 cell.isAdded = true
             } else {
-                selectedJanrs.remove(janrs[indexPath.item])
+                selectedJanrs.removeAll { $0 == janrs[indexPath.item] }
                 cell.contentView.backgroundColor = AppColor.color11.uiColor
                 cell.janrlabel.textColor = .black
                 cell.isAdded = false

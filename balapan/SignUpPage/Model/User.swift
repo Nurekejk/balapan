@@ -20,7 +20,17 @@ struct User: Codable {
         self.password = password
     }
 }
-struct SignUpResponse: Codable {
-    let access_token: String?
 
+struct SignUpRequest {
+    let email: String
+    let password: String
+}
+
+struct SignUpResponse: Codable {
+    let token: String
+}
+
+enum SignUpErrorResponse: Error {
+    case invalidResponse
+    case serverError(String)
 }

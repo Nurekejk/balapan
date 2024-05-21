@@ -224,28 +224,23 @@ class SignInViewController: UIViewController {
         var user = User(email: email)
         user.setPassword(password: password)
 
-        service.fetchUser(with: user) { result in
+        let loginRequest = LoginRequest(email: user.email, password: user.password)
+        service.login(requestBody: loginRequest) { result in
             switch result {
-            case .success(let data):
-                self.showSuccess()
-                let defaults = UserDefaults.standard
-                if let data = try? JSONEncoder().encode(data) {
-                    defaults.setValue(data, forKey: SignUpViewController.defaultsTokensKey)
-                    let controller = TabBarViewController()
-                    controller.navigationItem.hidesBackButton = true
-                    self.navigationController?.pushViewController(controller, animated: true)
-                }
-            case .failure:
-                DispatchQueue.main.async {
-                    self.showFailure()
-                    self.showSnackBar(message: "Ошибка! Повторите еще раз.")
-                }
+            case .success(let response):
+                print("Login successful. Token: \(response.token)")
+                let controller = TabBarViewController()
+                self.navigationController?.isNavigationBarHidden = true 
+                self.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                print("Login failed. Error: \(error)")
             }
         }
     }
 
     @objc private func registerButtonTapped(_ sender: UIButton) {
         let controller = SignUpViewController()
+        controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
 

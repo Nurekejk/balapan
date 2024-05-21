@@ -12,21 +12,36 @@ import Alamofire
 final class SignInService {
 
     // MARK: - Network
+    func login(
+        requestBody: LoginRequest,
+        completion: @escaping (Result<LoginResponse, LoginErrorResponse>) -> Void
+    ) {
+        let url = "https://balapan.onrender.com/api/auth/login"
+        let parameters: [String: Any] = [
+            "email": requestBody.email,
+            "password": requestBody.password
+        ]
 
-    func fetchUser (with user: User, completion: @escaping (Result<SignUpResponse, AFError>) -> Void) {
-        let urlComponent = URL(string: "https://balapan.onrender.com/api/auth/login")
-
-        guard let url = urlComponent else {
-            return
-        }
-
-        let parameters: [String: Any] = [ "email": user.email,
-                                          "password": user.password]
-
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
-            .validate()
-            .responseDecodable(of: SignUpResponse.self) { response in
-                completion(response.result)
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                    // Save the token to UserDefaults
+                    UserDefaults.standard.set(loginResponse.token, forKey: "userToken")
+                    // Print the saved token to verify
+                    if let savedToken = UserDefaults.standard.string(forKey: "userToken") {
+                        print("Token saved in UserDefaults: \(savedToken)")
+                    } else {
+                        print("Failed to save the token in UserDefaults.")
+                    }
+                    completion(.success(loginResponse))
+                } catch {
+                    completion(.failure(.invalidResponse))
+                }
+            case .failure(let error):
+                completion(.failure(.serverError(error.localizedDescription)))
             }
+        }
     }
 }

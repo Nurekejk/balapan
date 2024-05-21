@@ -27,6 +27,15 @@ class HomeViewController: UIViewController {
         setupConstraints()
         fetchPlaylists()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     private func setupViews() {
         view.addSubview(collectionView)
@@ -60,9 +69,9 @@ class HomeViewController: UIViewController {
         let groupSize: NSCollectionLayoutSize
         switch sectionIndex {
         case 0:
-            groupSize = NSCollectionLayoutSize(widthDimension: .estimated(200), heightDimension: .estimated(156))
-        case 1:
             groupSize = NSCollectionLayoutSize(widthDimension: .estimated(300), heightDimension: .estimated(250))
+        case 1:
+            groupSize = NSCollectionLayoutSize(widthDimension: .estimated(200), heightDimension: .estimated(156))
         default:
             groupSize = NSCollectionLayoutSize(widthDimension: .estimated(128), heightDimension: .estimated(224))
         }
@@ -131,20 +140,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContinueCollectionViewCell.identifier, for: indexPath) as!     ContinueCollectionViewCell
-            if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
-                loadImage(from: url, into: cell.imageView)
-            }
-            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].category
-            cell.movieName.text = playlists[indexPath.section].videos[indexPath.item].title
-            return cell
-        case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewCollectionViewCell.identifier, for: indexPath) as!     NewCollectionViewCell
             if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
                 loadImage(from: url, into: cell.imageView)
             }
             cell.movieName.text = playlists[indexPath.section].videos[indexPath.item].title
             cell.shortDescription.text = playlists[indexPath.section].videos[indexPath.item].shortDescription
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContinueCollectionViewCell.identifier, for: indexPath) as!     ContinueCollectionViewCell
+            if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
+                loadImage(from: url, into: cell.imageView)
+            }
+            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].category
+            cell.movieName.text = playlists[indexPath.section].videos[indexPath.item].title
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as!     DefaultCollectionViewCell
@@ -171,4 +180,5 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         self.navigationItem.backBarButtonItem = backButton
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
 }

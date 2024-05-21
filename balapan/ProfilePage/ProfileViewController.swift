@@ -80,18 +80,35 @@ final class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Да",
                                       style: .destructive,
                                       handler: { _ in
-
-            self.defaults.removeObject(forKey: SignUpViewController.defaultsTokensKey)
-            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate,
-               let window = sceneDelegate.window{
-                window.rootViewController = UINavigationController(rootViewController: SignInViewController())
+            self.logout { success in
+                if success {
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                       let sceneDelegate = windowScene.delegate as? SceneDelegate,
+                       let window = sceneDelegate.window {
+                        window.rootViewController = UINavigationController(rootViewController: SignInViewController())
+                        window.makeKeyAndVisible()
+                    }
+                } else {
+                    print("Logout failed. No token to remove.")
+                }
             }
-
         }))
         alert.addAction(UIAlertAction(title: "Нет",
                                       style: .cancel,
-                                      handler: { _ in }))
+                                      handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    private func logout(completion: @escaping (Bool) -> Void) {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "userToken") != nil {
+            defaults.removeObject(forKey: "userToken")
+            print("Token removed from UserDefaults.")
+            completion(true)
+        } else {
+            print("No token found in UserDefaults.")
+            completion(false)
+        }
     }
 }
 
@@ -137,7 +154,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 250
     }
-
+//
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
 //        let row = indexPath.row

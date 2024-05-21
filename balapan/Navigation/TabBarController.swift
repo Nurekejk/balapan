@@ -46,6 +46,7 @@ final class TabBarViewController: UITabBarController {
                           selectedImage: UIImage,
                           image: UIImage,
                           viewController: UIViewController) -> UIViewController {
+        
         let navViewController = UINavigationController(rootViewController: viewController)
         navViewController.tabBarItem.image = image
         navViewController.tabBarItem.selectedImage = selectedImage.withRenderingMode(.alwaysOriginal)

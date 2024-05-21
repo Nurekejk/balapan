@@ -15,19 +15,18 @@ final class HomeService {
     func getAllPlaylists(completion: @escaping (Result<[Playlist], ErrorResponse>) -> Void) {
         let url = "https://balapan.onrender.com/api/playlists"
 
-        let defaults = UserDefaults.standard
 
         // Извлечение данных токена из UserDefaults
-        guard let data = defaults.data(forKey: SignUpViewController.defaultsTokensKey),
-              let tokenData = try? JSONDecoder().decode(SignUpResponse.self, from: data) else {
-            completion(.failure(ErrorResponse(message: "Токен не найден или не может быть декодирован")))
+        let defaults = UserDefaults.standard
+        guard let token = defaults.string(forKey: "userToken") else {
+            completion(.failure(ErrorResponse(message: "Token not found")))
             return
         }
 
-        // Настройка заголовков с токеном
+        // Установка заголовков запроса
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(tokenData.access_token)",
-            "Accept": "application/json"
+            "Content-Type": "application/json",
+            "token": "\(token)"
         ]
 
         AF.request(url, method: .get, headers: headers).responseDecodable(of: [Playlist].self) { response in

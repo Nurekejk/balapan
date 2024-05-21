@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     private let service = CreateUserService()
     public static var defaultsTokensKey = "accessTokens"
 
+
     // MARK: - UI
 
     private let welcomLabel: UILabel = {
@@ -237,6 +238,7 @@ class SignUpViewController: UIViewController {
 
     @objc private func loginButtonTapped(_ sender: UIButton) {
         let controller = SignInViewController()
+        controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
@@ -277,25 +279,20 @@ class SignUpViewController: UIViewController {
             self.showSnackBar(message: "Пароли не совпадают.")
             return
         }
+        
         var user = User(email: email)
         user.setPassword(password: password)
 
-        service.fetchUser(with: user) { result in
+        let signUpRequest = SignUpRequest(email: user.email, password: user.password)
+        service.signUp(requestBody: signUpRequest) { result in
             switch result {
-            case .success(let data):
-                self.showSuccess()
-                let defaults = UserDefaults.standard
-                if let data = try? JSONEncoder().encode(data) {
-                    defaults.setValue(data, forKey: SignUpViewController.defaultsTokensKey)
-                    let controller = AddChildViewController()
-                    controller.navigationItem.hidesBackButton = true
-                    self.navigationController?.pushViewController(controller, animated: true)
-                }
-            case .failure:
-                DispatchQueue.main.async {
-                    self.showFailure()
-                    self.showSnackBar(message: "Ошибка! Повторите еще раз.")
-                }
+            case .success(let response):
+                print("Registration successful. Token: \(response.token)")
+                let controller = AddChildViewController()
+                self.navigationController?.isNavigationBarHidden = true 
+                self.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                print("Registration failed. Error: \(error)")
             }
         }
     }

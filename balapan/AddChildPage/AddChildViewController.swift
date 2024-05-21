@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import ProgressHUD
+import SnapKit
 
 enum ControllerMode {
     case boy
@@ -18,12 +19,14 @@ class AddChildViewController: UIViewController {
     private var selectedAge = ""
 
     var mode: ControllerMode = .boy
+
     // MARK: - UI
 
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Есімі"
         label.font = .systemFont(ofSize: 14, weight: .bold)
+        label.textColor = AppColor.gray900.uiColor
         return label
     }()
 
@@ -32,14 +35,14 @@ class AddChildViewController: UIViewController {
         textField.placeholder = "Баланың есімі"
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
+        textField.layer.borderColor = AppColor.gray300.cgColor
         return textField
     }()
 
     private let boyLabel: UILabel = {
         let label = UILabel()
         label.text = "Ұл"
-        label.textColor = .black
+        label.textColor = AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
@@ -52,7 +55,7 @@ class AddChildViewController: UIViewController {
     private let girlLabel: UILabel = {
         let label = UILabel()
         label.text = "Қыз"
-        label.textColor = .black
+        label.textColor = AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
@@ -68,7 +71,7 @@ class AddChildViewController: UIViewController {
         uiControl.backgroundColor = .white
         uiControl.layer.cornerRadius = 10
         uiControl.layer.borderWidth = 2
-        uiControl.layer.borderColor = AppColor.color10.cgColor
+        uiControl.layer.borderColor = AppColor.red300.cgColor
         uiControl.addTarget(self, action: #selector(boyUIControlDidPressed), for: .touchUpInside)
         return uiControl
     }()
@@ -76,7 +79,7 @@ class AddChildViewController: UIViewController {
         let uiControl = UIControl()
         uiControl.layer.cornerRadius = 10
         uiControl.backgroundColor = .white
-        uiControl.layer.borderColor = .init(red: 229/255, green: 235/255, blue: 240/255, alpha: 1)
+        uiControl.layer.borderColor = AppColor.gray300.cgColor
         uiControl.layer.borderWidth = 2
         uiControl.addTarget(self, action: #selector(girlControlDidPressed), for: .touchUpInside)
         return uiControl
@@ -90,7 +93,7 @@ class AddChildViewController: UIViewController {
     private let ageLabel: UILabel = {
         let label = UILabel()
         label.text = "Жасы"
-        label.textColor = .black
+        label.textColor =  AppColor.gray900.uiColor
         label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
@@ -112,7 +115,7 @@ class AddChildViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.tintColor = .white
         button.layer.cornerRadius = 12
-        button.backgroundColor = AppColor.color12.uiColor
+        button.backgroundColor = AppColor.blue300.uiColor
         button.addTarget(self, action: #selector(nextButtonDidPressed), for: .touchUpInside)
         return button
     }()
@@ -124,7 +127,7 @@ class AddChildViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1
-        button.layer.borderColor = AppColor.color11.cgColor
+        button.layer.borderColor = AppColor.gray300.cgColor
         button.addTarget(self, action: #selector(skipButtonDidPressed), for: .touchUpInside)
         return button
     }()
@@ -132,6 +135,7 @@ class AddChildViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         title = "Баланы тіркеу"
         view.backgroundColor = .white
         setupViews()
@@ -223,6 +227,7 @@ class AddChildViewController: UIViewController {
             make.height.equalTo(56)
         }
     }
+    // MARK: - Actions
 
     @objc private func boyUIControlDidPressed(_ sender: UIButton) {
         self.mode = .boy
@@ -240,30 +245,53 @@ class AddChildViewController: UIViewController {
     }
 
     @objc private func nextButtonDidPressed(_ sender: UIButton) {
-        let controller = FilterViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
+        guard let password = childNameTextField.text else {
+            self.showFailure()
+            self.showSnackBar(message: "Баланыңыздың ісімін еңгізіңіз.")
+            return
+        }
 
+        if password.isEmpty {
+            self.showFailure()
+            self.showSnackBar(message: "Баланыңыздың ісімін еңгізіңіз.")
+            return
+        }
+
+        if selectedAge.isEmpty {
+            self.showFailure()
+            self.showSnackBar(message: "Баланыңыздың жасын таңдаңыз.")
+            return
+        } else {
+            let gender: String
+            if self.mode == .boy{
+                gender = "male"
+            }else {gender = "female"}
+            let controller = FilterViewController(gender: gender, age: Int(selectedAge)!)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
+
     @objc private func skipButtonDidPressed(_ sender: UIButton) {
         let controller = TabBarViewController()
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
-    */
-    
-
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    // MARK: - SnackBar
+    private func showSnackBar(message: String) {
+        SnackBarController.showSnackBar(in: view, message: message, duration: .lengthShort)
+    }
 }
-extension AddChildViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+// MARK: - Extenshions
+extension AddChildViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ProgressHudProtocol {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ages.count
     }
@@ -281,8 +309,8 @@ extension AddChildViewController: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? AgeCollectionViewCell {
-            cell.childAgelabel.textColor = AppColor.color12.uiColor
-            cell.layer.borderColor = AppColor.color12.cgColor
+            cell.childAgelabel.textColor = AppColor.blue300.uiColor
+            cell.layer.borderColor = AppColor.blue300.cgColor
             cell.layer.cornerRadius = 5
             cell.layer.borderWidth = 2
             self.selectedAge = ages[indexPath.item]
@@ -290,12 +318,21 @@ extension AddChildViewController: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? AgeCollectionViewCell {
-            cell.childAgelabel.textColor = .lightGray
+            cell.childAgelabel.textColor = AppColor.gray500.uiColor
             cell.layer.cornerRadius = 0
             cell.layer.borderWidth = 0
 
         }
     }
+    // MARK: - ProgressHUD
 
+    func showSuccess() {
+        ProgressHUD.show(icon: .succeed)
+    }
+
+    func showFailure() {
+        ProgressHUD.show(icon: .failed)
+    }
 
 }
+
