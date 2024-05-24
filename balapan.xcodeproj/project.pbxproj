@@ -32,6 +32,7 @@
 		617026ED2BFB4AE600031862 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026EC2BFB4AE600031862 /* FilterService.swift */; };
 		617026EF2BFB4CC900031862 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026EE2BFB4CC900031862 /* Child.swift */; };
 		617026F12BFC7C5900031862 /* SigIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F02BFC7C5900031862 /* SigIn.swift */; };
+		617026F42BFC983300031862 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F32BFC983300031862 /* VideoPlayerViewController.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -88,6 +89,7 @@
 		617026EC2BFB4AE600031862 /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		617026EE2BFB4CC900031862 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		617026F02BFC7C5900031862 /* SigIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigIn.swift; sourceTree = "<group>"; };
+		617026F32BFC983300031862 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		617026F22BFC980700031862 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				617026F32BFC983300031862 /* VideoPlayerViewController.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
 		619B040E2BAE0C8E00380F46 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +263,7 @@
 		619B04192BAE0C8E00380F46 /* balapan */ = {
 			isa = PBXGroup;
 			children = (
+				617026F22BFC980700031862 /* VideoPlayer */,
 				61FFB5982BB2BD2600678411 /* HelloPage */,
 				617026D72BF9037600031862 /* SignInPage */,
 				617026D62BF9035C00031862 /* SignUpPage */,
@@ -519,6 +530,7 @@
 				61B9B5652BF4A9A80055A0B7 /* FilterViewController.swift in Sources */,
 				619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */,
 				61FF11512BC80839005006F2 /* MovieCategory.swift in Sources */,
+				617026F42BFC983300031862 /* VideoPlayerViewController.swift in Sources */,
 				61B9B5632BF473630055A0B7 /* Ages.swift in Sources */,
 				617026E32BF92BFE00031862 /* SignInService.swift in Sources */,
 				61FF11552BC817F3005006F2 /* GameCategory.swift in Sources */,

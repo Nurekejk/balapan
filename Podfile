@@ -12,5 +12,6 @@ target 'balapan' do
    pod 'Alamofire'
    pod 'PanModal'
    pod 'Wormholy', :configurations => ['Debug']
-
+   pod 'youtube-ios-player-helper'
+   pod 'SDWebImage'
 end

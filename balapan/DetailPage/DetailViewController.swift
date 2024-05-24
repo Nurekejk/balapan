@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import youtube_ios_player_helper
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, YTPlayerViewDelegate {
 
     private var video: Video
+
+
     // MARK: - UI
 
     private let movieImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -39,6 +42,7 @@ class DetailViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setBackgroundImage(UIImage(named: "playFrame"), for: .normal)
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(playButtonDidPress(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -71,6 +75,11 @@ class DetailViewController: UIViewController {
         collectionView.layer.cornerRadius = 8
         return collectionView
     }()
+    let playerView: YTPlayerView = {
+        let playerView = YTPlayerView()
+        return playerView
+    }()
+
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -101,11 +110,24 @@ class DetailViewController: UIViewController {
      
     }
     // MARK: - SetupConstraints
+//    func setMovieConstraints(){
+//        if(self.type < 2){
+//            movieImage.snp.makeConstraints { make in
+//                make.top.leading.trailing.equalToSuperview()
+//                make.height.equalTo(550)
+//            }
+//        }else {
+//            movieImage.snp.makeConstraints { make in
+//                make.top.leading.trailing.equalToSuperview()
+//                make.height.equalTo(550)
+//            }
+//        }
+//    }
     func setupConstraints(){
         movieImage.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(550)
-        }
+           make.top.leading.trailing.equalToSuperview()
+           make.height.equalTo(550)
+       }
         movieName.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(350)
             make.centerX.equalToSuperview()
@@ -207,8 +229,24 @@ class DetailViewController: UIViewController {
     @objc private func moreInfoButtonDidPressed(_ sender: UIButton) {
         let viewController = MoreInfoViewController()
         viewController.modalPresentationStyle = .pageSheet
-          present(viewController, animated: true)
+        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
+        present(viewController, animated: true)
     }
+    @objc private func playButtonDidPress(_ sender: UIButton) {
+           view.addSubview(playerView)
+           playerView.snp.makeConstraints { make in
+               make.leading.trailing.top.bottom.equalToSuperview()
+           }
+           playerView.load(withVideoId: extractVideoID(from: video.url), playerVars: ["playsinline": 1])
+       }
+
+       private func extractVideoID(from url: String) -> String {
+           // Предполагая, что видео ID всегда будет последним параметром в ссылке
+           if let videoID = URLComponents(string: url)?.queryItems?.first(where: { $0.name == "v" })?.value {
+               return videoID
+           }
+           return ""
+       }
 
 }
 

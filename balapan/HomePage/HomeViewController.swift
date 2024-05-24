@@ -94,8 +94,11 @@ class HomeViewController: UIViewController {
     private func fetchPlaylists() {
         service.getAllPlaylists { [weak self] result in
             switch result {
-            case .success(let playlists):
-                self?.playlists = playlists
+            case .success(var playlists):
+                for playlist in playlists {
+                    self?.playlists.insert(playlist, at: 0)
+                }
+
                 DispatchQueue.main.async {
                     self?.collectionView.reloadData()
                 }
@@ -104,6 +107,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
 
     func loadImage(from url: URL, into imageView: UIImageView) {
         let session = URLSession.shared
@@ -180,5 +184,5 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         self.navigationItem.backBarButtonItem = backButton
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
+
 }

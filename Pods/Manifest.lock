@@ -2,36 +2,46 @@ PODS:
   - Alamofire (5.9.1)
   - PanModal (1.2.7)
   - ProgressHUD (13.6.2)
+  - SDWebImage (5.19.2):
+    - SDWebImage/Core (= 5.19.2)
+  - SDWebImage/Core (5.19.2)
   - SnackBar.swift (0.1.0):
     - SnapKit
   - SnapKit (5.0.1)
   - Wormholy (1.7.0)
+  - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
   - PanModal
   - ProgressHUD (= 13.6.2)
+  - SDWebImage
   - SnackBar.swift
   - SnapKit (~> 5.0.0)
   - Wormholy
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - PanModal
     - ProgressHUD
+    - SDWebImage
     - SnackBar.swift
     - SnapKit
     - Wormholy
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   ProgressHUD: 355915c8f033e626788fa9b0d99d06e8691595ab
+  SDWebImage: dfe95b2466a9823cf9f0c6d01217c06550d7b29a
   SnackBar.swift: 79ea4df13ea9e6633137dd6acbd490534d26440d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Wormholy: ab1c8c2f02f58587a0941deb0088555ffbf039a1
+  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: dbe1f3492535d7638379ea5dddeede8c43e6a148
+PODFILE CHECKSUM: 96e8c8e98bb7473cd5619081a3752354f4b1ee32
 
 COCOAPODS: 1.15.2
