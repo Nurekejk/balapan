@@ -45,6 +45,18 @@ struct Video: Decodable {
     }
 }
 
+struct Videoу: Decodable {
+    let id: String
+    let category: String
+    let thumbnail: String
+    let version: Int
+    let title: String
+    let description: String
+    let shortDescription: String
+    let type: String
+    let url: String
+}
+
 struct ErrorResponse: Decodable, Error {
     let message: String
 }

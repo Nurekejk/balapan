@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
         let groupSize: NSCollectionLayoutSize
         switch sectionIndex {
         case 0:
-            groupSize = NSCollectionLayoutSize(widthDimension: .estimated(300), heightDimension: .estimated(250))
+            groupSize = NSCollectionLayoutSize(widthDimension: .estimated(300), heightDimension: .estimated(200))
         case 1:
             groupSize = NSCollectionLayoutSize(widthDimension: .estimated(200), heightDimension: .estimated(156))
         default:
@@ -133,6 +133,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return playlists.count
     }
@@ -156,7 +157,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
                 loadImage(from: url, into: cell.imageView)
             }
-            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].category
+            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].type
             cell.movieName.text = playlists[indexPath.section].videos[indexPath.item].title
             return cell
         default:
@@ -165,7 +166,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 loadImage(from: url, into: cell.imageView)
             }
             cell.movieName.text = playlists[indexPath.section].videos[indexPath.item].title
-            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].category
+            cell.categoryName.text = playlists[indexPath.section].videos[indexPath.item].type
             return cell
         }
     }
@@ -177,7 +178,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = DetailViewController(video: playlists[indexPath.section].videos[indexPath.item])
+        let controller = DetailViewController(video: playlists[indexPath.section].videos[indexPath.item], playlist: playlists[indexPath.section])
         controller.hidesBottomBarWhenPushed = true
         let backButton = UIBarButtonItem()
         backButton.title = ""

@@ -8,6 +8,9 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+     var allVideos: [Video] = []
+    private let service = SearchService()
 
     private let textField: UITextField = {
         let textField = UITextField()
@@ -25,6 +28,7 @@ class SearchViewController: UIViewController {
         button.setImage(AppImage.search_icon.uiImage, for: .normal)
         button.tintColor =  UIColor(red: 55/255, green: 65/255, blue: 81/255, alpha: 1)
         button.backgroundColor = UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1)
+        button.addTarget(self, action: #selector(searchButtonDidPressed(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -85,6 +89,29 @@ class SearchViewController: UIViewController {
         }
 
     }
+    @objc private func searchButtonDidPressed(_ sender: UIButton) {
+        guard let search: String = textField.text else {
+//            self.showFailure()
+//            self.showSnackBar(message: "Введите email.")
+            return
+        }
+        service.getAllVideos(search: search) { result in
+            switch result {
+            case .success(var videos):
+                var videosByCategory: [Video] = []
+
+                for v in videos{
+                    videosByCategory.append(Video(id: v.id, category: v.category, thumbnail: v.thumbnail, version: v.version, title: v.title, description: v.description, shortDescription: v.shortDescription, type: v.type, url: v.url))
+                }
+                let playlistByCategory = Playlist(id: "1", name: search, videos: videosByCategory, version: 0)
+                let controller = CategoryViewController(playlist: playlistByCategory)
+                self.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                print("Ошибка получения плейлистов: \(error)")
+            }
+        }
+
+    }
 
 }
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -109,8 +136,20 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         10
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = CategoryViewController()
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
+        service.getVideosByCategory(categoryId: MovieCategory.categoryArray[indexPath.item].categoryId) { result in
+            switch result {
+            case .success(var videos):
+                var videosByCategory: [Video] = []
 
+                for v in videos{
+                    videosByCategory.append(Video(id: v.id, category: v.category, thumbnail: v.thumbnail, version: v.version, title: v.title, description: v.description, shortDescription: v.shortDescription, type: v.type, url: v.url))
+                }
+                let playlistByCategory = Playlist(id: "1", name: MovieCategory.categoryArray[indexPath.item].categoryName!, videos: videosByCategory, version: 0)
+                let controller = CategoryViewController(playlist: playlistByCategory)
+                self.navigationController?.pushViewController(controller, animated: true)
+            case .failure(let error):
+                print("Ошибка получения плейлистов: \(error)")
+            }
+        }
+    }
 }

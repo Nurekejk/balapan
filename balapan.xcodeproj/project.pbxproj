@@ -33,6 +33,10 @@
 		617026EF2BFB4CC900031862 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026EE2BFB4CC900031862 /* Child.swift */; };
 		617026F12BFC7C5900031862 /* SigIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F02BFC7C5900031862 /* SigIn.swift */; };
 		617026F42BFC983300031862 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F32BFC983300031862 /* VideoPlayerViewController.swift */; };
+		617026F72C02023B00031862 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F62C02023B00031862 /* SearchService.swift */; };
+		617026FA2C02132F00031862 /* PuzzleGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026F92C02132F00031862 /* PuzzleGameViewController.swift */; };
+		617026FC2C02201200031862 /* TestGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026FB2C02201200031862 /* TestGameViewController.swift */; };
+		617027002C02235B00031862 /* AnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617026FF2C02235B00031862 /* AnswerCollectionViewCell.swift */; };
 		619B041B2BAE0C8E00380F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041A2BAE0C8E00380F46 /* AppDelegate.swift */; };
 		619B041D2BAE0C8E00380F46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */; };
 		619B041F2BAE0C8E00380F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B041E2BAE0C8E00380F46 /* ViewController.swift */; };
@@ -90,6 +94,10 @@
 		617026EE2BFB4CC900031862 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		617026F02BFC7C5900031862 /* SigIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigIn.swift; sourceTree = "<group>"; };
 		617026F32BFC983300031862 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		617026F62C02023B00031862 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		617026F92C02132F00031862 /* PuzzleGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleGameViewController.swift; sourceTree = "<group>"; };
+		617026FB2C02201200031862 /* TestGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGameViewController.swift; sourceTree = "<group>"; };
+		617026FF2C02235B00031862 /* AnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCollectionViewCell.swift; sourceTree = "<group>"; };
 		619B04172BAE0C8E00380F46 /* balapan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balapan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		619B041A2BAE0C8E00380F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619B041C2BAE0C8E00380F46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,6 +250,25 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		617026F52C02021600031862 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61FF11502BC80839005006F2 /* MovieCategory.swift */,
+				617026F62C02023B00031862 /* SearchService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		617026F82C0212EA00031862 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				617026F92C02132F00031862 /* PuzzleGameViewController.swift */,
+				617026FB2C02201200031862 /* TestGameViewController.swift */,
+				617026FF2C02235B00031862 /* AnswerCollectionViewCell.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
 		619B040E2BAE0C8E00380F46 = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +297,7 @@
 				61B9B55B2BF349370055A0B7 /* AddChildPage */,
 				61FFB5A22BB2D52D00678411 /* HomePage */,
 				61FFB5A52BB2D64C00678411 /* SearchPage */,
+				617026F82C0212EA00031862 /* Games */,
 				611FCBD92BB4299200B23F61 /* GamePage */,
 				617026CC2BF8CF1F00031862 /* ProfilePage */,
 				617026C72BF8BA4700031862 /* CategoryPage */,
@@ -354,9 +382,9 @@
 		61FFB5A52BB2D64C00678411 /* SearchPage */ = {
 			isa = PBXGroup;
 			children = (
+				617026F52C02021600031862 /* Model */,
 				61FFB5A62BB2D67200678411 /* SearchViewController.swift */,
 				611FCBD72BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift */,
-				61FF11502BC80839005006F2 /* MovieCategory.swift */,
 			);
 			path = SearchPage;
 			sourceTree = "<group>";
@@ -502,6 +530,7 @@
 				617026D92BF9045200031862 /* User.swift in Sources */,
 				61FFB5A42BB2D5DF00678411 /* HomeViewController.swift in Sources */,
 				61B9B5672BF4AD6A0055A0B7 /* FilterCollectionViewCell.swift in Sources */,
+				617027002C02235B00031862 /* AnswerCollectionViewCell.swift in Sources */,
 				617026ED2BFB4AE600031862 /* FilterService.swift in Sources */,
 				611FCBEC2BBEB6E100B23F61 /* DefaultCollectionViewCell.swift in Sources */,
 				617026E02BF90E2800031862 /* CreateUserService.swift in Sources */,
@@ -516,6 +545,7 @@
 				611FCBD82BB40A6000B23F61 /* SearchCategoryCollectionViewCell.swift in Sources */,
 				61FF11492BC7EB76005006F2 /* SignUpViewController.swift in Sources */,
 				61B9B54F2BF1164E0055A0B7 /* DetailViewController.swift in Sources */,
+				617026FC2C02201200031862 /* TestGameViewController.swift in Sources */,
 				61B9B5582BF2B7B00055A0B7 /* SeriesTableViewCell.swift in Sources */,
 				61FF11472BC7CE7E005006F2 /* AuthTextField.swift in Sources */,
 				611FCBDB2BB42A0400B23F61 /* GameViewController.swift in Sources */,
@@ -537,8 +567,10 @@
 				61FFB59C2BB2BD6900678411 /* HelloViewController.swift in Sources */,
 				617026DD2BF90C9C00031862 /* SnackBarController.swift in Sources */,
 				61B9B5532BF2276F0055A0B7 /* MoreInfoViewController.swift in Sources */,
+				617026FA2C02132F00031862 /* PuzzleGameViewController.swift in Sources */,
 				617026C92BF8BA7100031862 /* CategoryViewController.swift in Sources */,
 				617026CE2BF8CF3900031862 /* ProfileViewController.swift in Sources */,
+				617026F72C02023B00031862 /* SearchService.swift in Sources */,
 				61FF114F2BC7FFF9005006F2 /* AppImage.swift in Sources */,
 				617026CB2BF8BC2D00031862 /* CategoryTableViewCell.swift in Sources */,
 			);

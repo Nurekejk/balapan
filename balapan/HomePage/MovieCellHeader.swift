@@ -9,6 +9,8 @@ import UIKit
 
 class MovieCellHeader: UICollectionReusableView {
     static let identifier = "MovieCellHeader"
+    weak var delegate: MovieCellHeaderDelegate?
+    
 
     // MARK: - Outlets
 
@@ -24,6 +26,7 @@ class MovieCellHeader: UICollectionReusableView {
         button.setTitleColor(AppColor.color10.uiColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(allMoviesButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -51,11 +54,15 @@ class MovieCellHeader: UICollectionReusableView {
 
     private func setupLayout() {
         title.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview()
+            make.leading.bottom.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(45)
             make.width.equalTo(250)
         }
         allMoviesButton.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview()
+            make.trailing.bottom.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(45)
         }
     }
 
@@ -63,4 +70,10 @@ class MovieCellHeader: UICollectionReusableView {
         super.prepareForReuse()
         title.text = nil
     }
+    @objc private func allMoviesButtonTapped() {
+           delegate?.didTapAllMoviesButton()
+       }
+}
+protocol MovieCellHeaderDelegate: AnyObject {
+    func didTapAllMoviesButton()
 }

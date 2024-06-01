@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryViewController: UIViewController {
 
+    private var playlist: Playlist
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -29,6 +31,15 @@ class CategoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    init(playlist: Playlist) {
+        self.playlist = playlist
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     func setupViews(){
         view.addSubview(tableView)
 
@@ -41,6 +52,28 @@ class CategoryViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-18)
             make.bottom.equalToSuperview()
         }
+    }
+
+
+    func loadImage(from url: URL, into imageView: UIImageView) {
+        let session = URLSession.shared
+
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Ошибка загрузки изображения: \(error)")
+                return
+            }
+
+            guard let data = data, let image = UIImage(data: data) else {
+                print("Ошибка преобразования данных в изображение")
+                return
+            }
+
+            DispatchQueue.main.async {
+                imageView.image = image
+            }
+        }
+        task.resume()
     }
 
 
@@ -57,20 +90,26 @@ class CategoryViewController: UIViewController {
 }
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return playlist.videos.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                 for: indexPath) as? CategoryTableViewCell
-        return cell ?? UITableViewCell()
+                                                 for: indexPath) as! CategoryTableViewCell
+        if let url = URL(string: playlist.videos[indexPath.item].thumbnail) {
+            loadImage(from: url, into: cell.movieImage)
+        }
+
+        cell.movieNameLabel.text = playlist.videos[indexPath.item].title
+        cell.descriptionLabel.text = playlist.videos[indexPath.item].type
+        return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         133
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let controller = DetailViewController(video: <#T##Video#>)
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let controller = DetailViewController(video: playlist.videos[indexPath.item], playlist: playlist)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

@@ -10,11 +10,11 @@ import youtube_ios_player_helper
 
 class DetailViewController: UIViewController, YTPlayerViewDelegate {
 
+    private var playlist: Playlist
     private var video: Video
 
 
     // MARK: - UI
-
     private let movieImage: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -45,7 +45,6 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
         button.addTarget(self, action: #selector(playButtonDidPress(_:)), for: .touchUpInside)
         return button
     }()
-
 
     private let addButton: UIButton = {
         let button = UIButton()
@@ -89,8 +88,9 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
         loadData()
     }
 
-    init(video: Video) {
+    init(video: Video, playlist: Playlist) {
         self.video = video
+        self.playlist = playlist
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -107,22 +107,8 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
         view.addSubview(playButton)
         view.addSubview(moreInfoButton)
         view.addSubview(collectionView)
-     
     }
     // MARK: - SetupConstraints
-//    func setMovieConstraints(){
-//        if(self.type < 2){
-//            movieImage.snp.makeConstraints { make in
-//                make.top.leading.trailing.equalToSuperview()
-//                make.height.equalTo(550)
-//            }
-//        }else {
-//            movieImage.snp.makeConstraints { make in
-//                make.top.leading.trailing.equalToSuperview()
-//                make.height.equalTo(550)
-//            }
-//        }
-//    }
     func setupConstraints(){
         movieImage.snp.makeConstraints { make in
            make.top.leading.trailing.equalToSuperview()
@@ -152,7 +138,7 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
             make.width.equalTo(100)
         }
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(addButton.snp.bottom)
+            make.top.equalTo(addButton.snp.bottom).offset(-20)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -163,8 +149,7 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
             loadImage(from: url, into: movieImage)
         }
         movieName.text = video.title
-        shortDescription.text = video.shortDescription
-
+        shortDescription.text = video.type
 
     }
 
@@ -210,7 +195,7 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
 
             let layoutSectionHeaderSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.93),
-                heightDimension: .estimated(80)
+                heightDimension: .estimated(100)
             )
             let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: layoutSectionHeaderSize,
@@ -228,9 +213,14 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
     }
     @objc private func moreInfoButtonDidPressed(_ sender: UIButton) {
         let viewController = MoreInfoViewController()
-        viewController.modalPresentationStyle = .pageSheet
-        viewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
-        present(viewController, animated: true)
+        viewController.infoLabel.text = video.description
+
+           if let sheet = viewController.sheetPresentationController {
+               sheet.detents = [.custom { _ in
+                   return 300
+               }]
+           }
+           present(viewController, animated: true)
     }
     @objc private func playButtonDidPress(_ sender: UIButton) {
            view.addSubview(playerView)
@@ -250,27 +240,43 @@ class DetailViewController: UIViewController, YTPlayerViewDelegate {
 
 }
 
-extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension DetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, MovieCellHeaderDelegate {
+
+    func didTapAllMoviesButton() {
+           let allMoviesViewController = CategoryViewController(playlist: playlist)
+           navigationController?.pushViewController(allMoviesViewController, animated: true)
+       }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return playlist.videos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as! DefaultCollectionViewCell
+        if let url = URL(string: playlist.videos[indexPath.item].thumbnail) {
+            loadImage(from: url, into: cell.imageView)
+        }
         cell.movieName.textColor = .white
         cell.categoryName.textColor = .white
+        cell.movieName.text = playlist.videos[indexPath.item].title
+        cell.categoryName.text = playlist.videos[indexPath.item].type
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MovieCellHeader.identifier, for: indexPath) as! MovieCellHeader
         header.title.text = "Сізге ұсынылады"
         header.title.textColor = .lightGray
-
+        header.delegate = self
         return header
 
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        video = playlist.videos[indexPath.item]
+        loadData()
+        collectionView.reloadData()
     }
 
 
 }
+

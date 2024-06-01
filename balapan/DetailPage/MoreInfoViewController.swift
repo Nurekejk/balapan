@@ -19,7 +19,7 @@ class MoreInfoViewController: UIViewController {
         return label
     }()
 
-    private let infoLabel = {
+    lazy var infoLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .darkGray

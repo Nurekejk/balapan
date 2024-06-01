@@ -23,14 +23,14 @@ class CategoryTableViewCell: UITableViewCell {
         movieImage.clipsToBounds = true
         return movieImage
     }()
-    private let movieNameLabel: UILabel = {
+    lazy var movieNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Cимба"
         label.textColor = .black
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
-    private let descriptionLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "2020 * Телехикая * Мультфильм"
         label.textColor = .lightGray
