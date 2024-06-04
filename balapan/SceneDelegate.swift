@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         if isAuthorized() {
             window?.rootViewController = TabBarViewController()
+    ()
         } else {
             window?.rootViewController =
             UINavigationController(rootViewController: HelloViewController())

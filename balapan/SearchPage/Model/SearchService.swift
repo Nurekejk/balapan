@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 final class SearchService {
-
     // MARK: - Network
 
     func getVideosByCategory(categoryId: String,completion: @escaping (Result<[Videoу], ErrorResponse>) -> Void) {
@@ -49,7 +48,7 @@ final class SearchService {
         }
     }
     func getAllVideos(search: String,completion: @escaping (Result<[Videoу], ErrorResponse>) -> Void) {
-        let url = "https://balapan.onrender.com//api/videos?search=)"
+        let url = "https://balapan.onrender.com/api/videos?search=\(search + " ")"
 
 
         let defaults = UserDefaults.standard

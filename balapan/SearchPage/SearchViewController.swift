@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    
-     var allVideos: [Video] = []
+class SearchViewController: UIViewController, UITextFieldDelegate {
+
+    var allVideos: [Video] = []
     private let service = SearchService()
 
     private let textField: UITextField = {
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .white
         setupViews()
         setupConstraints()
-
+        textField.delegate = self
     }
 
     private func setupViews() {
@@ -85,68 +85,70 @@ class SearchViewController: UIViewController {
             make.leading.equalToSuperview().offset(18)
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview().offset(-98)
-
         }
-
     }
+
     @objc private func searchButtonDidPressed(_ sender: UIButton) {
-        guard let search: String = textField.text else {
-//            self.showFailure()
-//            self.showSnackBar(message: "Введите email.")
+        guard let search = textField.text, !search.isEmpty else {
+            // Возможно, покажите ошибку пользователю
             return
         }
         service.getAllVideos(search: search) { result in
             switch result {
-            case .success(var videos):
-                var videosByCategory: [Video] = []
-
-                for v in videos{
-                    videosByCategory.append(Video(id: v.id, category: v.category, thumbnail: v.thumbnail, version: v.version, title: v.title, description: v.description, shortDescription: v.shortDescription, type: v.type, url: v.url))
-                }
+            case .success(let videos):
+                let videosByCategory = videos.map { Video(id: $0.id, category: $0.category, thumbnail: $0.thumbnail, version: $0.version, title: $0.title, description: $0.description, shortDescription: $0.shortDescription, type: $0.type, url: $0.url) }
                 let playlistByCategory = Playlist(id: "1", name: search, videos: videosByCategory, version: 0)
                 let controller = CategoryViewController(playlist: playlistByCategory)
-                self.navigationController?.pushViewController(controller, animated: true)
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
             case .failure(let error):
                 print("Ошибка получения плейлистов: \(error)")
             }
         }
-
     }
 
+    // UITextFieldDelegate method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
+
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return MovieCategory.categoryArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoryCollectionViewCell.identifier, for: indexPath) as!     SearchCategoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCategoryCollectionViewCell.identifier, for: indexPath) as! SearchCategoryCollectionViewCell
         cell.image.image = UIImage(named: MovieCategory.categoryArray[indexPath.item].image)
         cell.categoryLabel.text = MovieCategory.categoryArray[indexPath.item].categoryName
         cell.uiView.backgroundColor = MovieCategory.categoryArray[indexPath.item].color
         return cell
     }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(
             width: ((view.frame.size.width - 18) / 2) - 15,
             height: ((view.frame.size.width - 18) / 2) - 15
         )
     }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         10
     }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         service.getVideosByCategory(categoryId: MovieCategory.categoryArray[indexPath.item].categoryId) { result in
             switch result {
-            case .success(var videos):
-                var videosByCategory: [Video] = []
-
-                for v in videos{
-                    videosByCategory.append(Video(id: v.id, category: v.category, thumbnail: v.thumbnail, version: v.version, title: v.title, description: v.description, shortDescription: v.shortDescription, type: v.type, url: v.url))
-                }
+            case .success(let videos):
+                let videosByCategory = videos.map { Video(id: $0.id, category: $0.category, thumbnail: $0.thumbnail, version: $0.version, title: $0.title, description: $0.description, shortDescription: $0.shortDescription, type: $0.type, url: $0.url) }
                 let playlistByCategory = Playlist(id: "1", name: MovieCategory.categoryArray[indexPath.item].categoryName!, videos: videosByCategory, version: 0)
                 let controller = CategoryViewController(playlist: playlistByCategory)
-                self.navigationController?.pushViewController(controller, animated: true)
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
             case .failure(let error):
                 print("Ошибка получения плейлистов: \(error)")
             }

@@ -40,6 +40,12 @@ class DefaultCollectionViewCell: UICollectionViewCell {
          setupViews()
          setupConstraints()
      }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        movieName.text = ""
+        categoryName.text = ""
+        imageView.image = nil
+        }
 
      required init?(coder: NSCoder) {
          fatalError("ERROR")

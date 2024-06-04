@@ -40,5 +40,11 @@ class AnswerCollectionViewCell: UICollectionViewCell {
             make.centerX.centerY.equalToSuperview()
         }
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        answerLabel.text = ""
+        answerLabel.backgroundColor = AppColor.blue300.uiColor
+        contentView.backgroundColor = AppColor.blue300.uiColor
+        }
 
 }

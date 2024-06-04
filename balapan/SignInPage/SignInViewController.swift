@@ -253,9 +253,6 @@ class SignInViewController: UIViewController {
         isSecureIcon.setImage(UIImage(systemName: imageName), for: .normal)
     }
     func hideKeyboardWhenTappedAround() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }

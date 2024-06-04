@@ -154,6 +154,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContinueCollectionViewCell.identifier, for: indexPath) as!     ContinueCollectionViewCell
+            cell.prepareForReuse()
             if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
                 loadImage(from: url, into: cell.imageView)
             }
@@ -162,6 +163,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DefaultCollectionViewCell.identifier, for: indexPath) as!     DefaultCollectionViewCell
+            cell.prepareForReuse()
             if let url = URL(string: playlists[indexPath.section].videos[indexPath.item].thumbnail) {
                 loadImage(from: url, into: cell.imageView)
             }

@@ -13,7 +13,6 @@ class ContinueCollectionViewCell: UICollectionViewCell {
 
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage (named: "movie")
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleToFill
@@ -21,14 +20,12 @@ class ContinueCollectionViewCell: UICollectionViewCell {
     }()
     lazy var movieName: UILabel = {
         let label = UILabel()
-        label.text = "Глобус"
         label.textColor = .black
         label.font = .systemFont(ofSize: 12, weight: .semibold)
         return label
     }()
     lazy var categoryName: UILabel = {
         let label = UILabel()
-        label.text = "1-бөлім"
         label.textColor = .lightGray
         label.font = .systemFont(ofSize: 12, weight: .thin)
         return label
@@ -65,5 +62,11 @@ class ContinueCollectionViewCell: UICollectionViewCell {
             make.leading.equalToSuperview()
         }
     }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        movieName.text = ""
+        categoryName.text = ""
+        imageView.image = nil
+        }
 
 }
